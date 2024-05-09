@@ -1,11 +1,18 @@
-<p>Server with ID {{ serverId }} is {{ getServerStatus() }} </p>
+<!-- <p>Server with ID {{ serverId }} is {{ getServerStatus() }} </p>
 
 <label>Server Name</label>
-<!-- <input type="text" class="form-control" (input)="onUpdateServerName($event)"> -->
 
 <input type="text" class="form-control" [(ngModel)]="serverName">
-<!-- <p> {{ serverName }} </p> -->
 
-<!-- <p [innerText]="!allowNewServer"></p> -->
+<p [innerText]="!allowNewServer"></p>
 <button type="button" class="btn btn-primary" [disabled]="!allowNewServer" (click)="onCreateServer()">Add server</button>
-<p> {{ serverCreationStatus }} </p>
+<p> {{ serverCreationStatus }} </p>  -->
+
+<div class="container mt-10">
+    <label for="username">Insert you username below ⬇️</label>
+    <input type="text" id="username" class="form-control" [(ngModel)]="username">
+    <hr>
+    <p> Welcome back {{ username }}!</p>
+    <!-- The button is disabled up until we type something in the input field -->
+    <button type="button" class="btn btn-primary mt-2" [disabled]="username === ''" (click)="username = ''">Reset user</button>
+  </div>

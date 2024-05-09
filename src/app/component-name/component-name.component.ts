@@ -6,28 +6,30 @@ import { Component } from '@angular/core';
   styleUrl: './component-name.component.css'
 })
 export class ComponentNameComponent {
-  serverId: number = 10;
-  serverStatus: string = 'offline';
-  serverName = "";
+  // serverId: number = 10;
+  // serverStatus: string = 'offline';
+  // serverName = "";
 
-  // This is how you define a method in TypeScript
-  getServerStatus() {
-    return this.serverStatus;
-  }
+  // // This is how you define a method in TypeScript
+  // getServerStatus() {
+  //   return this.serverStatus;
+  // }
 
-  allowNewServer = false;
+  // allowNewServer = false;
 
-  serverCreationStatus = 'No server was created';
+  // serverCreationStatus = 'No server was created';
 
-  constructor() {
-    setTimeout(() => {this.allowNewServer = true;}, 2000);
-  }
+  // constructor() {
+  //   setTimeout(() => {this.allowNewServer = true;}, 2000);
+  // }
 
-  onCreateServer() {
-    this.serverCreationStatus = 'Server was created! Name is ' + this.serverName ;
-  }
+  // onCreateServer() {
+  //   this.serverCreationStatus = 'Server was created! Name is ' + this.serverName ;
+  // }
 
-  onUpdateServerName(event: any) {
-    this.serverName = event.target.value;
-  }
+  // onUpdateServerName(event: any) {
+  //   this.serverName = event.target.value;
+  // }
+
+  username= '';
 }
