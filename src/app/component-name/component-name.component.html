@@ -4,15 +4,25 @@
 
 <input type="text" class="form-control" [(ngModel)]="serverName">
 
-<p [innerText]="!allowNewServer"></p>
-<button type="button" class="btn btn-primary" [disabled]="!allowNewServer" (click)="onCreateServer()">Add server</button>
-<p> {{ serverCreationStatus }} </p>  -->
+<p [innerText]="!allowNewServer"></p>-->
 
 <div class="container mt-10">
-    <label for="username">Insert you username below ⬇️</label>
+    <label for="username">Insert your username below ⬇️</label>
     <input type="text" id="username" class="form-control" [(ngModel)]="username">
     <hr>
-    <p> Welcome back {{ username }}!</p>
+
+    <!-- Conditional rendering with ngIf -->
+    <p *ngIf="serverCreated; else noUser">Welcome back {{ username }}!</p>
+    <ng-template #noUser>
+        <p>No user found.</p>
+    </ng-template>
+
     <!-- The button is disabled up until we type something in the input field -->
-    <button type="button" class="btn btn-primary mt-2" [disabled]="username === ''" (click)="username = ''">Reset user</button>
-  </div>
+    <button type="button" class="btn btn-danger mt-2" [disabled]="username === ''" (click)="username = ''">Reset</button>
+    <hr>
+    <div class="add-server">
+        <button type="button" class="btn btn-primary" [disabled]="!allowNewServer" (click)="onCreateServer()">Add user</button>
+        <p class="creation-status"> {{ serverCreationStatus }} </p>
+    </div>
+</div>
+
