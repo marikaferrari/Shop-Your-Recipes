@@ -6,5 +6,11 @@ import { Component } from '@angular/core';
   styleUrl: './component-name.component.css'
 })
 export class ComponentNameComponent {
+  serverId: number = 10;
+  serverStatus: string = 'offline';
 
+  // This is how you define a method in TypeScript
+  getServerStatus() {
+    return this.serverStatus;
+  }
 }
