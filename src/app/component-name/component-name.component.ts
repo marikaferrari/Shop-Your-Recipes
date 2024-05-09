@@ -8,6 +8,7 @@ import { Component } from '@angular/core';
 export class ComponentNameComponent {
   serverId: number = 10;
   serverStatus: string = 'offline';
+  serverName = "";
 
   // This is how you define a method in TypeScript
   getServerStatus() {
@@ -24,5 +25,9 @@ export class ComponentNameComponent {
 
   onCreateServer() {
     this.serverCreationStatus = 'Server was created';
+  }
+
+  onUpdateServerName(event: any) {
+    this.serverName = event.target.value;
   }
 }
