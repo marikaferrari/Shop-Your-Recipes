@@ -1,4 +1,3 @@
-import { ComponentNameComponent } from './component-name/component-name.component';
 import { Component } from '@angular/core';
 
 @Component({
@@ -7,5 +6,15 @@ import { Component } from '@angular/core';
   styleUrl: './app.component.css',
 })
 export class AppComponent {
-  name = 'Ma';
+  // *ngFor assignment
+  showSecret = false;
+  log = [];
+
+  // Each time the button is clicked
+  // This method is triggered and displays how many times it's been clicked
+  onToggleDetails() {
+    this.showSecret = !this.showSecret;
+    this.log.push(this.log.length + 1)
+  }
+
 }

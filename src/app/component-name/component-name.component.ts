@@ -10,7 +10,8 @@ export class ComponentNameComponent {
   serverStatus: string = 'offline';
   serverName = "";
   serverCreated = false;
-  username= '';
+  username="";
+
 
   // This is how you define a method in TypeScript
   getServerStatus() {
