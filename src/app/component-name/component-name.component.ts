@@ -6,7 +6,7 @@ import { Component } from '@angular/core';
   styleUrl: './component-name.component.css'
 })
 export class ComponentNameComponent {
-  serverId: number = 10;
+  userId: number = 10;
   serverStatus: string = 'offline';
   serverName = "";
   serverCreated = false;
@@ -23,15 +23,23 @@ export class ComponentNameComponent {
 
   constructor() {
     setTimeout(() => {this.allowNewServer = true;}, 2000);
+    this.serverStatus = Math.random() > 0.5 ? 'online' : 'offline';
   }
 
+  // This is a method
   onCreateServer() {
     this.serverCreationStatus = 'Server was created! Name is ' + this.username ;
     this.serverCreated = true;
   }
 
+  // This is a method
   onUpdateServerName(event: any) {
     this.serverName = event.target.value;
+  }
+
+  // This is a method
+  getColor() {
+    return this.serverStatus === 'online' ? 'green' : 'red';
   }
 
 }

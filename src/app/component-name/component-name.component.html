@@ -1,9 +1,5 @@
-<!-- <p>Server with ID {{ serverId }} is {{ getServerStatus() }} </p>
-
-<label>Server Name</label>
-
+<!-- <label>Server Name</label>
 <input type="text" class="form-control" [(ngModel)]="serverName">
-
 <p [innerText]="!allowNewServer"></p>-->
 
 <div class="container mt-10">
@@ -24,5 +20,6 @@
         <button type="button" class="btn btn-primary" [disabled]="!allowNewServer" (click)="onCreateServer()">Add user</button>
         <p class="creation-status"> {{ serverCreationStatus }} </p>
     </div>
+    <p [ngStyle]="{'color': getColor()}" class="status">User with ID {{ userId }} is {{ getServerStatus() }} </p>
 </div>
 
