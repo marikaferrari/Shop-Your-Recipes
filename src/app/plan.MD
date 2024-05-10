@@ -14,3 +14,7 @@
         - Recipe List
         - Recipe Item
         - Recipe Details
+
+## Models:
+- Ingredient
+- Recipe
