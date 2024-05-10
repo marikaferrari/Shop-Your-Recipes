@@ -7,4 +7,6 @@ import { Component } from '@angular/core';
 })
 export class HeaderComponent {
 
+  // For responsive header on smaller screen (hamburger menu)
+  collapsed = true;
 }
