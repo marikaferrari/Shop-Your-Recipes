@@ -1,0 +1,11 @@
+.row {
+    height: 100%;
+    width: 50%;
+    margin: 20px;
+}
+
+a {
+    margin-bottom: 6px;
+    width: 70%;
+    font-weight: bold;
+}
