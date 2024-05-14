@@ -1,0 +1,19 @@
+html, body {
+    height: 100vh;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    height: 100vh;
+    width: 100%;
+    background-color: aquamarine;
+    gap: 50px;
+}
+
+.row {
+    height: 100%;
+    display: flex;
+    justify-content: space-around;
+}

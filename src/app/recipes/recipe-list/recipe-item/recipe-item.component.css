@@ -1,0 +1,23 @@
+img {
+    border-radius: 10%;
+}
+
+.list-group-item {
+    height: 100px;
+    padding: 20px;
+}
+
+.pull-left {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+}
+
+h4 {
+    font-size: x-large;
+    font-weight: bold;
+}
+
+p {
+    font-size: 16px;
+}
