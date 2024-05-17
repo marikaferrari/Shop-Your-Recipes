@@ -67,9 +67,8 @@ export class RecipeService {
         ]),
         new Recipe('Omelette Du Fromage', 'Quite the omelette, Dexter guaranteed.', 'https://pbs.twimg.com/media/ChI8G3WWwAQXQby.jpg',
         [
-        new Ingredient('Tomato', 2),
-        new Ingredient('Bread', 1),
-        new Ingredient('Red Pepper', 1)
+        new Ingredient('Egg', 2),
+        new Ingredient('Fromage', 1),
         ])
       ];
 
