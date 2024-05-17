@@ -3,7 +3,7 @@ img {
 }
 
 .list-group-item {
-    height: 100px;
+    min-height: 100px;
     padding: 20px;
 }
 
@@ -11,11 +11,18 @@ img {
     display: flex;
     justify-content: space-between;
     flex-direction: column;
+    flex-wrap: wrap;
 }
 
-h4 {
+p {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+h5 {
     font-size: x-large;
     font-weight: bold;
+    padding-bottom: 5px;
 }
 
 p {
