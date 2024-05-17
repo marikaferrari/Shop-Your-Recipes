@@ -5,7 +5,7 @@
         [src]="recipe.imagePath"
         alt="{{ recipe.name }}"
         class="img-responsive"
-        style="max-height: 120px, max-width: 180px"
+        style="max-height: 80px, max-width: 180px"
       />
     </div>
   </div>
@@ -22,7 +22,7 @@
               Manage Recipe <span class="caret"></span>
             </button>
             <ul class="dropdown-menu">
-              <li class="dropdown border"><a href="#">To Shopping List</a></li>
+              <li class="dropdown border"><a (click)="onAddToShoppingList()" style="cursor: pointer">To Shopping List</a></li>
               <li class="dropdown border"><a href="#">Edit Recipe</a></li>
               <li class="dropdown"><a href="#">Delete Recipe</a></li>
             </ul>
