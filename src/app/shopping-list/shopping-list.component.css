@@ -1,7 +1,12 @@
 .row {
-    height: 100%;
+    height: 100dvh;
     width: 50%;
     margin: 20px;
+}
+
+hr {
+    width: 70%;
+    margin-left: 0;
 }
 
 a {
