@@ -1,9 +1,15 @@
+<!-- The app-header component emits the featureSelected event, which is handled by the onNavigate method -->
 <app-header (featureSelected)="onNavigate($event)"></app-header>
+
+<!-- Container for the main content of the app -->
 <div class="container">
   <div class="row">
     <div class="col-md-12">
+      <!-- Conditionally render the app-recipes component if loadedFeature is 'recipe' -->
       <app-recipes *ngIf="loadedFeature === 'recipe'"></app-recipes>
+      <!-- Conditionally render the app-shopping-list component if loadedFeature is not 'recipe' -->
       <app-shopping-list *ngIf="loadedFeature !== 'recipe'"></app-shopping-list>
     </div>
   </div>
 </div>
+```
