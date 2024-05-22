@@ -11,8 +11,8 @@
     <div class="navbar-collapse" [class.collapse]="collapsed" (window:resize)="collapsed = true">
 
       <ul class="nav navbar-nav navbar-right">
-        <li style="font-size: 17px;"><a routerLink="/recipes">Recipes</a></li>
-        <li style="font-size: 17px;"><a routerLink="/shopping-list">Shopping List</a></li>
+        <li style="font-size: 17px;" routerLinkActive="active"><a routerLink="/recipes">Recipes</a></li>
+        <li style="font-size: 17px;" routerLinkActive="active"><a routerLink="/shopping-list">Shopping List</a></li>
         <li class="dropdown" appDropdown>
           <a href="#" class="dropdown-toggle" role="button">Manage <span class="caret"></span></a>
           <ul class="dropdown-menu">
