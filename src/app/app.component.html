@@ -1,11 +1,8 @@
-<!-- The app-header component emits the featureSelected event, which is handled by the onNavigate method -->
-<app-header (featureSelected)="onNavigate($event)"></app-header>
-
-<!-- Container for the main content of the app -->
+<app-header></app-header>
 <div class="container">
   <div class="row">
     <div class="col-md-12">
-     <router-outlet></router-outlet>
+      <router-outlet></router-outlet>
     </div>
   </div>
 </div>
