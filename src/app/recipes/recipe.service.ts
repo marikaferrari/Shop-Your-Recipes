@@ -1,14 +1,14 @@
-import { EventEmitter, Injectable } from "@angular/core";
+import { Injectable } from "@angular/core";
 
 // Model
 import { Recipe } from "./recipe.model";
 import { Ingredient } from "../shared/ingredient.model";
+
+// Service
 import { ShoppingListService } from "../shopping-list/shopping-list.service";
 
 @Injectable()
 export class RecipeService {
-
-    recipeSelected = new EventEmitter<Recipe>();
 
     private recipes: Recipe[] = [
         new Recipe('Gazpacho', 'Delicious Andalusian gazpacho (with a "z").', 'https://images.unsplash.com/photo-1662469838214-a97415cd83fe?q=80&w=2940&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
