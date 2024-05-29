@@ -6,45 +6,54 @@
           <button
             type="submit"
             class="btn btn-success"
-            [disabled]="!recipeForm.valid" style="margin-right: 10px;">Save</button>
-          <button type="button" class="btn btn-danger" (click)="onCancel()">Cancel</button>
+            [disabled]="!recipeForm.valid"
+            style="margin-right: 10px; font-size: 15px"
+          >
+            Save
+          </button>
+          <button type="button" class="btn btn-danger" style="font-size: 15px;" (click)="onCancel()">
+            Cancel
+          </button>
         </div>
       </div>
-      <div class="row" style="margin-top: 40px;">
+      <div class="row" style="margin-top: 40px">
         <div class="col-xs-12">
           <div class="form-group">
-            <label for="name">Name</label>
+            <label for="name">Name 👩‍🍳</label>
             <input
               type="text"
               id="name"
               formControlName="name"
-              class="form-control">
+              class="form-control"
+            />
           </div>
         </div>
       </div>
       <div class="row">
         <div class="col-xs-12">
           <div class="form-group">
-            <label for="imagePath">Image URL</label>
+            <label for="imagePath">Image URL 📎</label>
             <input
               type="text"
               id="imagePath"
               formControlName="imagePath"
               class="form-control"
-              #imagePath>
+              #imagePath
+            />
           </div>
         </div>
       </div>
       <div class="row">
         <div class="col-xs-12">
           <div class="form-group">
-            <label for="description">Description</label>
+            <label for="description">Description ✍️</label>
             <textarea
               type="text"
               id="description"
               class="form-control"
               formControlName="description"
-              rows="6"></textarea>
+              rows="6"
+            ></textarea>
           </div>
         </div>
       </div>
@@ -54,33 +63,43 @@
             class="row"
             *ngFor="let ingredientCtrl of controls; let i = index"
             [formGroupName]="i"
-            style="margin-top: 10px;">
+            style="margin-top: 10px"
+          >
             <div class="col-xs-8">
-              <input
-                type="text"
-                class="form-control"
-                formControlName="name">
+              <input type="text" class="form-control" formControlName="name" />
             </div>
             <div class="col-xs-2">
               <input
                 type="number"
                 class="form-control"
-                formControlName="amount">
+                formControlName="amount"
+              />
             </div>
             <div class="col-xs-2">
               <button
                 type="button"
                 class="btn btn-danger"
-                (click)="onDeleteIngredient(i)">X</button>
+                (click)="onDeleteIngredient(i)"
+              >
+                X
+              </button>
             </div>
           </div>
-          <hr>
           <div class="row">
             <div class="col-xs-12">
               <button
                 type="button"
                 class="btn btn-success"
-                (click)="onAddIngredient()">Add Ingredient</button>
+                (click)="onAddIngredient()"
+                style="
+                  background-color: rgb(34, 154, 218);
+                  font-size: 15px;
+                  border-color: rgb(34, 154, 218);
+                  margin-top: 20px
+                "
+              >
+                Add Ingredient
+              </button>
             </div>
           </div>
         </div>
