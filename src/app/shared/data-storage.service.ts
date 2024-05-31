@@ -8,7 +8,7 @@ import { RecipeService } from '../recipes/recipe.service';
 @Injectable({ providedIn: 'root' })
 export class DataStorageService {
 
-  private url = 'https://shop-your-recipes-default-rtdb.europe-west1.firebasedatabase.app/recipes.json'
+  private url = 'https://shop-your-recipes-default-rtdb.europe-west1.firebasedatabase.app/recipes.json';
 
   constructor(private http: HttpClient, private recipeService: RecipeService) {}
 
