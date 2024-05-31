@@ -1,0 +1,9 @@
+{
+    "extends": [
+      "plugin:@html-eslint/recommended"
+    ],
+    "rules": {
+      "@html-eslint/no-inline-style": "off"
+    }
+  }
+  
