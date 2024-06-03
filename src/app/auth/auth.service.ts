@@ -28,12 +28,12 @@ export class AuthService {
         {
           email: email,
           password: password,
-          returnSecureToken: true
+          returnSecureToken: true,
         }
       )
       .pipe(
         catchError(this.handleError),
-        tap(resData => {
+        tap((resData) => {
           this.handleAuthentication(
             resData.email,
             resData.localId,
@@ -51,12 +51,12 @@ export class AuthService {
         {
           email: email,
           password: password,
-          returnSecureToken: true
+          returnSecureToken: true,
         }
       )
       .pipe(
         catchError(this.handleError),
-        tap(resData => {
+        tap((resData) => {
           this.handleAuthentication(
             resData.email,
             resData.localId,
