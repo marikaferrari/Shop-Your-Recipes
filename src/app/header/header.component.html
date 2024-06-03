@@ -17,8 +17,9 @@
       >
         <span class="icon-bar" *ngFor="let iconBar of [1, 2, 3]"></span>
       </button>
+      <!-- Needs fixing cos atm it redirects to recipes even when non-authenticated -->
       <a
-        routerLink="/"
+        routerLink="/recipes"
         class="navbar-brand"
         style="font-size: 20px; font-weight: bold; color: rgb(34, 154, 218)"
         >🛒🍲 Shop Your Recipes</a
@@ -33,7 +34,7 @@
         <li style="font-size: 17px" routerLinkActive="active" *ngIf="isAuthenticated">
           <a routerLink="/recipes">Recipes</a>
         </li>
-        <li style="font-size: 17px" routerLinkActive="active">
+        <li style="font-size: 17px" routerLinkActive="active" *ngIf="isAuthenticated">
           <a routerLink="/shopping-list">Shopping List</a>
         </li>
         <li style="font-size: 17px" routerLinkActive="active" *ngIf="!isAuthenticated">
@@ -41,7 +42,7 @@
         </li>
         <ul class="nav navbar-nav navbar-right">
           <li *ngIf="isAuthenticated">
-            <a style="cursor: pointer">Logout</a>
+            <a style="cursor: pointer" (click)="onLogout()">Logout</a>
           </li>
         </ul>
         <li class="dropdown" *ngIf="isAuthenticated" appDropdown>
