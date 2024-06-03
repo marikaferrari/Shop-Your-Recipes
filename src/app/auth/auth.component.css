@@ -1,4 +1,20 @@
 .row {
     height: 100dvh;
+    width: 100%;
     margin-top: 100px;
+}
+
+.buttons {
+    width: 60%;
+    margin-top: 20px;
+}
+
+button {
+    background-color: rgb(34, 154, 218);
+    font-size: 15px;
+    border-color: rgb(34, 154, 218);
+}
+
+input {
+    width: 60%;
 }
