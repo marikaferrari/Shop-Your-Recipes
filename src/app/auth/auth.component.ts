@@ -1,25 +1,26 @@
-import { AuthService, AuthResponseData } from './auth.service';
 import { Component } from '@angular/core';
 import { NgForm } from '@angular/forms';
+import { Router } from '@angular/router';
 import { Observable } from 'rxjs';
+
+import { AuthService, AuthResponseData } from './auth.service';
 
 @Component({
   selector: 'app-auth',
-  templateUrl: './auth.component.html',
+  templateUrl: './auth.component.html'
 })
 export class AuthComponent {
-  isLoginMode: boolean = true;
+  isLoginMode = true;
   isLoading = false;
   error: string = null;
 
-  constructor(private authService: AuthService) {}
+  constructor(private authService: AuthService, private router: Router) {}
 
   onSwitchMode() {
     this.isLoginMode = !this.isLoginMode;
   }
 
   onSubmit(form: NgForm) {
-    // console.log(form.value);
     if (!form.valid) {
       return;
     }
@@ -33,15 +34,16 @@ export class AuthComponent {
     if (this.isLoginMode) {
       authObs = this.authService.login(email, password);
     } else {
-      authObs = this.authService.signUp(email, password);
+      authObs = this.authService.signup(email, password);
     }
 
     authObs.subscribe(
-      (resData) => {
+      resData => {
         console.log(resData);
         this.isLoading = false;
+        this.router.navigate(['/recipes']);
       },
-      (errorMessage) => {
+      errorMessage => {
         console.log(errorMessage);
         this.error = errorMessage;
         this.isLoading = false;
