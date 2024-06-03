@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { AuthService } from './auth/auth.service';
 
 @Component({
   selector: 'app-root',
@@ -6,11 +7,11 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 
-export class AppComponent {
-  loadedFeature = 'recipe'; // A property to keep track of the currently selected feature (default is 'recipe')
+export class AppComponent implements OnInit {
 
-  // Method to change the value of loadedFeature based on the user's navigation choice
-  onNavigate(feature: string) {
-    this.loadedFeature = feature;
+  constructor(private authService: AuthService) {}
+
+  ngOnInit() {
+    this.authService.autoLogin();
   }
 }
