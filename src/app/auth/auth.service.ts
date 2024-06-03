@@ -28,12 +28,12 @@ export class AuthService {
         {
           email: email,
           password: password,
-          returnSecureToken: true,
+          returnSecureToken: true
         }
       )
       .pipe(
         catchError(this.handleError),
-        tap((resData) => {
+        tap(resData => {
           this.handleAuthentication(
             resData.email,
             resData.localId,
@@ -47,16 +47,16 @@ export class AuthService {
   login(email: string, password: string) {
     return this.http
       .post<AuthResponseData>(
-        'https://identitytoolkit.googleapis.com/v1/accounts:signUp?key=AIzaSyALxQsJ1sa6MDkuPrsdSI732rGC-m5W7sY',
+        'https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key=AIzaSyALxQsJ1sa6MDkuPrsdSI732rGC-m5W7sY',
         {
           email: email,
           password: password,
-          returnSecureToken: true,
+          returnSecureToken: true
         }
       )
       .pipe(
         catchError(this.handleError),
-        tap((resData) => {
+        tap(resData => {
           this.handleAuthentication(
             resData.email,
             resData.localId,
@@ -66,6 +66,7 @@ export class AuthService {
         })
       );
   }
+  
 
   private handleAuthentication(
     email: string,
@@ -81,9 +82,10 @@ export class AuthService {
   private handleError(errorRes: HttpErrorResponse) {
     let errorMessage = 'An unknown error occurred!';
     if (!errorRes.error || !errorRes.error.error) {
-      console.error('Unknown error response:', errorRes);
+      console.error('Error Response:', errorRes);
       return throwError(errorMessage);
     }
+    console.error('Error Message:', errorRes.error.error.message);
     switch (errorRes.error.error.message) {
       case 'EMAIL_EXISTS':
         errorMessage = 'This email exists already';
@@ -94,10 +96,16 @@ export class AuthService {
       case 'INVALID_PASSWORD':
         errorMessage = 'This password is not correct.';
         break;
-      default:
-        errorMessage = `Error: ${errorRes.error.error.message}`;
+      case 'USER_DISABLED':
+        errorMessage = 'The user account has been disabled by an administrator.';
+        break;
+      case 'OPERATION_NOT_ALLOWED':
+        errorMessage = 'Password sign-in is disabled for this project.';
+        break;
+      case 'TOO_MANY_ATTEMPTS_TRY_LATER':
+        errorMessage = 'We have blocked all requests from this device due to unusual activity. Try again later.';
+        break;
     }
-    console.error('Error response:', errorRes);
     return throwError(errorMessage);
   }
 }

@@ -1,5 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { HttpClientModule } from '@angular/common/http';
+import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 
 // Needed for databinding
 import { NgModule } from '@angular/core';
@@ -25,10 +25,10 @@ import { DropdownDirective } from './shared/dropdown.directive';
 // Services
 import { RecipeService } from './recipes/recipe.service';
 import { ShoppingListService } from './shopping-list/shopping-list.service';
+import { AuthInterceptorService } from './auth/auth-interceptor.service';
 
 // Module
 import { AppRoutingModule } from './app-routing.module';
-
 
 @NgModule({
   declarations: [
@@ -44,16 +44,24 @@ import { AppRoutingModule } from './app-routing.module';
     RecipeStartComponent,
     RecipeEditComponent,
     AuthComponent,
-    LoadingSpinnerComponent
+    LoadingSpinnerComponent,
   ],
   imports: [
     BrowserModule,
     FormsModule,
     ReactiveFormsModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
   ],
-  providers: [RecipeService, ShoppingListService],
-  bootstrap: [AppComponent]
+  providers: [
+    RecipeService,
+    ShoppingListService,
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: AuthInterceptorService,
+      multi: true,
+    },
+  ],
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}
