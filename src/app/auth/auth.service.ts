@@ -144,6 +144,9 @@ export class AuthService {
       case 'TOO_MANY_ATTEMPTS_TRY_LATER':
         errorMessage = 'We have blocked all requests from this device due to unusual activity. Try again later.';
         break;
+      case 'INVALID_LOGIN_CREDENTIALS':
+        errorMessage = 'Your email or password might be incorrect.';
+        break;
     }
     return throwError(errorMessage);
   }

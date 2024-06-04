@@ -1,25 +1,27 @@
-import { ViewContainerRef } from '@angular/core';
+import { OnDestroy, ViewContainerRef } from '@angular/core';
 import { Component, ComponentFactoryResolver, ViewChild } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { Router } from '@angular/router';
-import { Observable } from 'rxjs';
+import { Observable, Subscription } from 'rxjs';
 
 import { AuthService, AuthResponseData } from './auth.service';
 
 import { AlertComponent } from '../shared/alert/alert.component';
-import { PlaceHolderDirective } from '../shared/placeholder/placeholder.directive';
+import { PlaceholderDirective } from '../shared/placeholder/placeholder.directive';
 
 @Component({
   selector: 'app-auth',
   templateUrl: './auth.component.html',
   styleUrl: './auth.component.css',
 })
-export class AuthComponent {
+export class AuthComponent implements OnDestroy {
   isLoginMode = true;
   isLoading = false;
   error: string = null;
 
-  @ViewChild(PlaceHolderDirective, {static: false}) alertHost: PlaceHolderDirective;
+  @ViewChild(PlaceholderDirective, {static: false}) alertHost: PlaceholderDirective;
+
+  private closeSub: Subscription;
 
   constructor(
     private authService: AuthService,
@@ -69,13 +71,25 @@ export class AuthComponent {
     this.error = null;
   }
 
-  private showErrorAlert(message: string) {
-    // Dynamically creating component
-    const alertComponentFactory =
-      this.componentFactoryResolver.resolveComponentFactory(AlertComponent);
-      const hostViewContainerRef = this.alertHost.viewContainerRef;
-      hostViewContainerRef.clear();
+  ngOnDestroy(): void {
+    if (this.closeSub) {
+      this.closeSub.unsubscribe();
+    }
+  }
 
-      hostViewContainerRef.createComponent(alertComponentFactory);
+  private showErrorAlert(message: string) {
+    const alertCmpFactory = this.componentFactoryResolver.resolveComponentFactory(
+      AlertComponent
+    );
+    const hostViewContainerRef = this.alertHost.viewContainerRef;
+    hostViewContainerRef.clear();
+
+    const componentRef = hostViewContainerRef.createComponent(alertCmpFactory);
+
+    componentRef.instance.message = message;
+    this.closeSub = componentRef.instance.close.subscribe(() => {
+      this.closeSub.unsubscribe();
+      hostViewContainerRef.clear();
+    });
   }
 }
