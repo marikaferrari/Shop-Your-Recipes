@@ -22,6 +22,7 @@ import { AlertComponent } from './shared/alert/alert.component';
 
 // Directives
 import { DropdownDirective } from './shared/dropdown.directive';
+import { PlaceHolderDirective } from './shared/placeholder/placeholder.directive';
 
 // Services
 import { RecipeService } from './recipes/recipe.service';
@@ -47,7 +48,8 @@ import { AppRoutingModule } from './app-routing.module';
     RecipeEditComponent,
     AuthComponent,
     LoadingSpinnerComponent,
-    AlertComponent
+    AlertComponent,
+    PlaceHolderDirective
   ],
   imports: [
     BrowserModule,
