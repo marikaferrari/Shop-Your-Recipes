@@ -11,10 +11,6 @@ import { RecipeStartComponent } from "./recipe-start/recipe-start.component";
 import { RecipeEditComponent } from "./recipe-edit/recipe-edit.component";
 import { ReactiveFormsModule } from "@angular/forms";
 
-
-// Components
-
-
 @NgModule({
     declarations: [
         RecipesComponent,
