@@ -6,7 +6,7 @@ export class ShoppingListService {
   startedEditing = new Subject<number>();
   private ingredients: Ingredient[] = [
     new Ingredient('Apples', 5, "https://images.unsplash.com/photo-1476837579993-f1d3948f17c2?q=80&w=2940&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"),
-    new Ingredient('Tomatoes', 10, "https://images.unsplash.com/photo-1467020323552-36f7bf0e30e6?q=80&w=2940&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"),
+    new Ingredient('Tomato', 10, "https://images.unsplash.com/photo-1467020323552-36f7bf0e30e6?q=80&w=2940&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"),
   ];
 
   getIngredients() {
