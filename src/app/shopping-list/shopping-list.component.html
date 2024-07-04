@@ -20,8 +20,8 @@
             <p>{{ ingredient.name }} ({{ ingredient.amount }})</p>
           </div>
           <div class="icons">
-            <mat-icon>draw</mat-icon>
-            <mat-icon>delete</mat-icon>
+            <mat-icon (click)="onEditItem(i)">draw</mat-icon>
+            <mat-icon (click)="onDeleteItem(i)">delete</mat-icon>
           </div>
         </li>
       </ul>
