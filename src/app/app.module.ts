@@ -32,6 +32,9 @@ import { AuthInterceptorService } from './auth/auth-interceptor.service';
 // Module
 import { AppRoutingModule } from './app-routing.module';
 
+// Material
+import { MatIconModule } from '@angular/material/icon';
+
 
 @NgModule({
   declarations: [
@@ -57,6 +60,7 @@ import { AppRoutingModule } from './app-routing.module';
     ReactiveFormsModule,
     AppRoutingModule,
     HttpClientModule,
+    MatIconModule
   ],
   providers: [
     RecipeService,

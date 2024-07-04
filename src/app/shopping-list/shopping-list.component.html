@@ -6,26 +6,23 @@
       <ul class="list-group">
         <li
           class="list-group-item"
-          style="
-            cursor: pointer;
-            padding: 0;
-            display: flex;
-            flex-direction: row;
-            justify-content: flex-start;
-          "
           *ngFor="let ingredient of ingredients; let i = index"
           (click)="onEditItem(i)"
         >
-          <div class="image-container">
-            <img
-              [src]="ingredient.ingredientsImg"
-              alt="{{ ingredient.name }}"
-              class="ingredients-img"
-            />
+          <div class="ingredient-info">
+            <div class="image-container">
+              <img
+                [src]="ingredient.ingredientsImg"
+                alt="{{ ingredient.name }}"
+                class="ingredients-img"
+              />
+            </div>
+            <p>{{ ingredient.name }} ({{ ingredient.amount }})</p>
           </div>
-          <p style="padding: 10px; margin: 0; text-align: start">
-            {{ ingredient.name }} ({{ ingredient.amount }})
-          </p>
+          <div class="icons">
+            <mat-icon>draw</mat-icon>
+            <mat-icon>delete</mat-icon>
+          </div>
         </li>
       </ul>
     </div>
