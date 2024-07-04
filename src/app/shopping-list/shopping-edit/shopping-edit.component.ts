@@ -45,7 +45,7 @@ export class ShoppingEditComponent implements OnInit, OnDestroy {
     const newIngredient = new Ingredient(
       value.name,
       value.amount,
-      this.editMode ? this.editedItem.ingredientsImg : 'defaultImageUrl'
+      this.editMode ? this.editedItem.ingredientsImg : 'defaultImageUrl' // Preserve existing image URL or set a default
     );
     if (this.editMode) {
       this.slService.updateIngredient(this.editedItemIndex, newIngredient);
