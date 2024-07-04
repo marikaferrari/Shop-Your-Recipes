@@ -43,7 +43,8 @@
             class="list-group-item"
             *ngFor="let ingredient of recipe.ingredients"
           >
-            {{ ingredient.name }} ( {{ ingredient.amount }} )
+          <img [src]="ingredient.ingredientsImg" alt="{{ ingredient.name }}" class="ingredientsImg" />
+          {{ ingredient.name }} ( {{ ingredient.amount }} )
           </li>
         </ul>
       </div>
