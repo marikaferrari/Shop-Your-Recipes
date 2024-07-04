@@ -40,11 +40,11 @@
         <h4>Ingredients:</h4>
         <ul class="list-group">
           <li
-            class="list-group-item"
+            class="list-group-item" style="padding: 0; display: flex; flex-direction: row;"
             *ngFor="let ingredient of recipe.ingredients"
           >
-          <img [src]="ingredient.ingredientsImg" alt="{{ ingredient.name }}" class="ingredientsImg" />
-          {{ ingredient.name }} ( {{ ingredient.amount }} )
+          <!-- <img [src]="ingredient.ingredientsImg" alt="{{ ingredient.name }}" class="ingredients-img" style="margin-top: 3px; margin-bottom: 2px; margin-left: 5px;"/> -->
+          <p style="padding: 10px; margin: 0;">{{ ingredient.name }} ( {{ ingredient.amount }} )</p>
           </li>
         </ul>
       </div>

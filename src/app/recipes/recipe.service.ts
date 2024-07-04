@@ -28,7 +28,7 @@ export class RecipeService {
         new Ingredient(
           'Red Pepper',
           1,
-          'https://images.unsplash.com/photo-1606170034765-13ccb20615b5?q=80&w=2913&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'
+          'https://images.unsplash.com/photo-1465362342881-f183990e82b6?q=80&w=2940&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'
         ),
       ]
     ),
@@ -89,7 +89,7 @@ export class RecipeService {
         new Ingredient(
           'Shrimp',
           10,
-          'https://images.unsplash.com/photo-1548587468-971ebe4c8c3b?q=80&w=2788&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'
+          'https://images.unsplash.com/photo-1655992829046-ae2d44d205f7?q=80&w=2940&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'
         ),
         new Ingredient(
           'Tomato',
@@ -121,7 +121,7 @@ export class RecipeService {
         new Ingredient(
           'Red Pepper',
           1,
-          'https://images.unsplash.com/photo-1606170034765-13ccb20615b5?q=80&w=2913&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'
+          'https://images.unsplash.com/photo-1465362342881-f183990e82b6?q=80&w=2940&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'
         ),
       ]
     ),

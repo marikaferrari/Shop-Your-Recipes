@@ -4,15 +4,29 @@
       <app-shopping-edit></app-shopping-edit>
       <hr />
       <ul class="list-group">
-        <a
+        <li
           class="list-group-item"
-          style="cursor: pointer"
+          style="
+            cursor: pointer;
+            padding: 0;
+            display: flex;
+            flex-direction: row;
+            justify-content: flex-start;
+          "
           *ngFor="let ingredient of ingredients; let i = index"
           (click)="onEditItem(i)"
         >
-        <img [src]="ingredient.ingredientsImg" alt="{{ ingredient.name }}" />
-          {{ ingredient.name }} ({{ ingredient.amount }})
-        </a>
+          <div class="image-container">
+            <img
+              [src]="ingredient.ingredientsImg"
+              alt="{{ ingredient.name }}"
+              class="ingredients-img"
+            />
+          </div>
+          <p style="padding: 10px; margin: 0; text-align: start">
+            {{ ingredient.name }} ({{ ingredient.amount }})
+          </p>
+        </li>
       </ul>
     </div>
   </div>

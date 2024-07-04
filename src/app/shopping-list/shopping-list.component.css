@@ -7,17 +7,21 @@
 
 .row {
     width: 50%;
-    margin: 20px;
     display: flex;
     justify-content: center;
+    margin: 0;
 }
 
 .col-xs-10 {
-    height: 50%;
+    height: 60%;
     display: flex;
     flex-direction: column;
     justify-content: center;
     padding: 0;
+}
+
+.list-group {
+    width: 70%;
 }
 
 hr {
@@ -27,11 +31,25 @@ hr {
 
 a {
     margin-bottom: 6px;
-    width: 70%;
     font-weight: bold;
 }
 
-img {
-    height: 30px;
-    width: 30px;
-}
+.image-container {
+    height: 40px; /* Ensure the container height is 40px */
+    width: 45px; /* Ensure the container width is 40px */
+    flex-shrink: 0; /* Prevent the container from shrinking */
+    margin-right: 5px; /* Space between image container and text */
+    padding-left: 5px;
+    padding-top: 1px;
+    padding-bottom: 1px;
+    border-radius: 5%; /* Rounded corners */
+    overflow: hidden; /* Hide any overflow of the image */
+  }
+  
+  .ingredients-img {
+    width: 100%; /* Set image width to 100% of the container */
+    height: 100%; /* Set image height to 100% of the container */
+    object-fit: cover; /* Ensure the image covers the container without stretching */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Add a subtle shadow */
+  }
+  

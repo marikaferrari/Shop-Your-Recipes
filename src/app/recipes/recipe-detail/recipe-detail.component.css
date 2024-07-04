@@ -17,10 +17,15 @@
     justify-content: space-between;
     align-items: center;
 }
-
-img {
-    border-radius: 3%;
-}
+/* 
+.ingredients-img {
+    height: 100%; 
+    width: 15%; 
+    max-height: 40px; 
+    border-radius: 5%; 
+    object-fit: cover; 
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  } */
 
 h3 {
     font-weight: 600;
@@ -28,11 +33,6 @@ h3 {
 
 h4 {
     font-weight: bold;
-}
-
-.ingredientsImg {
-    height: 30px;
-    width: 30px;
 }
 
 button {
