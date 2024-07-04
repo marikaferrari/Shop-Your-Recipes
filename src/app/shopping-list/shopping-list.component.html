@@ -10,6 +10,7 @@
           *ngFor="let ingredient of ingredients; let i = index"
           (click)="onEditItem(i)"
         >
+        <img src="https://images.unsplash.com/photo-1461009463816-4edea93afd6f?q=80&w=2940&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" />
           {{ ingredient.name }} ({{ ingredient.amount }})
         </a>
       </ul>
