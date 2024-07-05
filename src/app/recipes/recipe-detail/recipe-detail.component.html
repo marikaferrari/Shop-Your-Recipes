@@ -44,7 +44,7 @@
             *ngFor="let ingredient of recipe.ingredients"
           >
           <!-- <img [src]="ingredient.ingredientsImg" alt="{{ ingredient.name }}" class="ingredients-img" style="margin-top: 3px; margin-bottom: 2px; margin-left: 5px;"/> -->
-          <p style="padding: 10px; margin: 0;">{{ ingredient.name }} ( {{ ingredient.amount }} )</p>
+          <p style="padding: 10px; margin: 0; font-weight: 400;"><strong style="font-weight: 450;">{{ ingredient.name }}</strong> | {{ ingredient.amount }} piece(s)</p>
           </li>
         </ul>
       </div>
