@@ -17,11 +17,11 @@
                 class="ingredients-img"
               />
             </div>
-            <p>{{ ingredient.name }} | {{ ingredient.amount }} pieces</p>
+            <p><strong style="font-weight: 450;">{{ ingredient.name }} </strong>| {{ ingredient.amount }} pieces</p>
           </div>
           <div class="icons">
-            <mat-icon (click)="onEditItem(i)">draw</mat-icon>
-            <mat-icon (click)="onDeleteItem(i)">delete_forever</mat-icon>
+            <mat-icon (click)="onEditItem(i)" style="color: rgb(34, 154, 218); box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);; border-radius: 50%;">draw</mat-icon>
+            <mat-icon (click)="onDeleteItem(i)" style="color: rgb(218, 34, 59); box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);; border-radius: 50%;">delete_forever</mat-icon>
           </div>
         </li>
       </ul>
