@@ -21,14 +21,14 @@
   }
   
   .list-group {
-    width: 70%;
+    width: 60%;
   }
   
   .list-group-item {
     width: 100%;
-    margin: 0;
+    margin-bottom: 5px;
     cursor: pointer;
-    padding: 0;
+    padding: 2px;
     display: flex;
     flex-direction: row;
     align-items: center;
@@ -68,7 +68,7 @@
   }
   
   hr {
-    width: 70%;
+    width: 60%;
     margin-left: 0;
   }
   
