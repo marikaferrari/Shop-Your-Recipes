@@ -17,16 +17,25 @@ export class ShoppingListService {
     return this.ingredients[index];
   }
 
-  addIngredient(ingredient: Ingredient) {
-    this.ingredients.push(ingredient);
+  addIngredient(newIngredient: Ingredient) {
+    const existingIngredientIndex = this.ingredients.findIndex(ingredient => ingredient.name === newIngredient.name);
+    if (existingIngredientIndex !== -1) {
+      this.ingredients[existingIngredientIndex].amount += newIngredient.amount;
+    } else {
+      this.ingredients.push(newIngredient);
+    }
     this.ingredientsChanged.next(this.ingredients.slice());
   }
 
   addIngredients(ingredients: Ingredient[]) {
-    // for (let ingredient of ingredients) {
-    //   this.addIngredient(ingredient);
-    // }
-    this.ingredients.push(...ingredients);
+    ingredients.forEach(newIngredient => {
+      const existingIngredientIndex = this.ingredients.findIndex(ingredient => ingredient.name === newIngredient.name);
+      if (existingIngredientIndex !== -1) {
+        this.ingredients[existingIngredientIndex].amount += newIngredient.amount;
+      } else {
+        this.ingredients.push(newIngredient);
+      }
+    });
     this.ingredientsChanged.next(this.ingredients.slice());
   }
 
