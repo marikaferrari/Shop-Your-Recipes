@@ -2,12 +2,12 @@
   <p style="font-weight: 500;">Notes:</p>
   <mat-form-field class="note-input" appearance="fill">
     <mat-label>Add a note</mat-label>
-    <input matInput [(ngModel)]="newNote">
+    <textarea matInput [(ngModel)]="newNote" cdkTextareaAutosize cdkAutosizeMinRows="3" cdkAutosizeMaxRows="10"></textarea>
   </mat-form-field>
   <button mat-raised-button color="primary" (click)="addNote()">Add Note</button>
 
   <ul class="list-group mt-3" style="margin-top: 20px;">
-    <li class="list-group-item d-flex justify-content-between align-items-center" *ngFor="let note of notes; let i = index">
+    <li class="list-group-item d-flex justify-content-between align-items-center" style="margin-top: 8px;" *ngFor="let note of notes; let i = index">
       <span>{{ note }}</span>
       <mat-icon (click)="deleteNote(i)" class="delete-icon">delete_forever</mat-icon>
     </li>
