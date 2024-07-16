@@ -1,7 +1,7 @@
 <div class="shopping-notes" style="padding-top: 0; padding-left: 40px;">
   <p style="font-weight: 500;">Notes:</p>
   <mat-form-field class="note-input" appearance="fill">
-    <mat-label>Add a note</mat-label>
+    <mat-label style="font-size: 14px;">🗒️ Add a note</mat-label>
     <textarea matInput [(ngModel)]="newNote" cdkTextareaAutosize cdkAutosizeMinRows="3" cdkAutosizeMaxRows="10"></textarea>
   </mat-form-field>
   <button mat-raised-button color="primary" style="font-weight: 400;" (click)="addNote()">Add Note</button>
