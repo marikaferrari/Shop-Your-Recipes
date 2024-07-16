@@ -16,14 +16,25 @@ export class ShoppingListComponent implements OnInit, OnDestroy {
   constructor(private slService: ShoppingListService) { }
 
   ngOnInit() {
-    this.categorizedIngredients = this.slService.getCategorizedIngredients();
+    this.updateCategorizedIngredients();
     this.subscription = this.slService.ingredientsChanged.subscribe((ingredients: Ingredient[]) => {
-      this.categorizedIngredients = this.slService.getCategorizedIngredients();
+      this.updateCategorizedIngredients();
     });
   }
 
-  onEditItem(index: number) {
-    this.slService.startedEditing.next(index);
+  updateCategorizedIngredients() {
+    const categorizedIngredients = this.slService.getCategorizedIngredients();
+    this.categorizedIngredients = Object.keys(categorizedIngredients)
+      .filter(category => categorizedIngredients[category].length > 0)
+      .reduce((acc, category) => {
+        acc[category] = categorizedIngredients[category];
+        return acc;
+      }, {});
+  }
+
+  onEditItem(category: string, index: number) {
+    const ingredientIndex = this.slService.getIngredients().findIndex(ingredient => this.categorizedIngredients[category][index] === ingredient);
+    this.slService.startedEditing.next(ingredientIndex);
   }
 
   onDeleteItem(category: string, index: number) {
