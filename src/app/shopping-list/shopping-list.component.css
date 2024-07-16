@@ -1,13 +1,13 @@
 .shopping-container {
     height: 100dvh;
-    width: 90%;
+    width: 100%;
     display: flex;
     justify-content: center;
     padding-top: 20px;
   }
   
   .row {
-    width: 50%;
+    width: 60%;
     display: flex;
     justify-content: center;
     margin: 0;
@@ -22,7 +22,7 @@
   }
   
   .list-group {
-    width: 80%;
+    width: 90%;
   }
   
   .list-group-item {
@@ -69,7 +69,7 @@
   }
   
   hr {
-    width: 80%;
+    width: 95%;
     margin-left: 0;
   }
   
