@@ -42,6 +42,7 @@ import { MatListModule } from '@angular/material/list';
 
 // CDK
 import { CdkTextareaAutosize } from '@angular/cdk/text-field';
+import { KeepAwakeComponent } from './shopping-list/keep-awake/keep-awake.component';
 
 @NgModule({
   declarations: [
@@ -60,7 +61,8 @@ import { CdkTextareaAutosize } from '@angular/cdk/text-field';
     LoadingSpinnerComponent,
     AlertComponent,
     PlaceholderDirective,
-    ShoppingNotesComponent
+    ShoppingNotesComponent,
+    KeepAwakeComponent
   ],
   imports: [
     BrowserModule,
