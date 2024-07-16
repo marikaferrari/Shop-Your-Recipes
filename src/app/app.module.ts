@@ -19,6 +19,7 @@ import { RecipeEditComponent } from './recipes/recipe-edit/recipe-edit.component
 import { AuthComponent } from './auth/auth.component';
 import { LoadingSpinnerComponent } from './shared/loading-spinner/loading-spinner.component';
 import { AlertComponent } from './shared/alert/alert.component';
+import { ShoppingNotesComponent } from './shopping-list/shopping-notes/shopping-notes.component';
 
 // Directives
 import { DropdownDirective } from './shared/dropdown.directive';
@@ -34,8 +35,10 @@ import { AppRoutingModule } from './app-routing.module';
 
 // Material
 import { MatIconModule } from '@angular/material/icon';
-import { ShoppingNotesComponent } from './shopping-list/shopping-notes/shopping-notes.component';
-
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
+import { MatButtonModule } from '@angular/material/button';
+import { MatListModule } from '@angular/material/list';
 
 @NgModule({
   declarations: [
@@ -62,7 +65,11 @@ import { ShoppingNotesComponent } from './shopping-list/shopping-notes/shopping-
     ReactiveFormsModule,
     AppRoutingModule,
     HttpClientModule,
-    MatIconModule
+    MatIconModule,
+    MatFormFieldModule,
+    MatInputModule,
+    MatButtonModule,
+    MatListModule
   ],
   providers: [
     RecipeService,
