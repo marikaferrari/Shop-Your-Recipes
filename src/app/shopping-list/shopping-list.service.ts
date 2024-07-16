@@ -9,6 +9,14 @@ export class ShoppingListService {
     new Ingredient('Tomato', 10, "https://images.unsplash.com/photo-1467020323552-36f7bf0e30e6?q=80&w=2940&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"),
   ];
 
+  private categories = {
+    'Vegetables': ['Tomato', 'Carrot', 'Lettuce', 'Pepper', 'Broccoli'],
+    'Fruits': ['Apples', 'Banana', 'Orange', 'Strawberry', 'Grapes'],
+    'Dairy': ['Milk', 'Cheese', 'Yogurt'],
+    'Meat': ['Chicken', 'Beef', 'Pork'],
+    'Grains': ['Bread', 'Rice', 'Pasta']
+  };
+
   getIngredients() {
     return this.ingredients.slice();
   }
@@ -47,5 +55,15 @@ export class ShoppingListService {
   deleteIngredient(index: number) {
     this.ingredients.splice(index, 1);
     this.ingredientsChanged.next(this.ingredients.slice());
+  }
+
+  getCategorizedIngredients() {
+    const categorizedIngredients = {};
+
+    for (const category in this.categories) {
+      categorizedIngredients[category] = this.ingredients.filter(ingredient => this.categories[category].includes(ingredient.name));
+    }
+
+    return categorizedIngredients;
   }
 }
