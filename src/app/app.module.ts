@@ -40,6 +40,9 @@ import { MatInputModule } from '@angular/material/input';
 import { MatButtonModule } from '@angular/material/button';
 import { MatListModule } from '@angular/material/list';
 
+// CDK
+import { CdkTextareaAutosize } from '@angular/cdk/text-field';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -69,7 +72,8 @@ import { MatListModule } from '@angular/material/list';
     MatFormFieldModule,
     MatInputModule,
     MatButtonModule,
-    MatListModule
+    MatListModule,
+    CdkTextareaAutosize
   ],
   providers: [
     RecipeService,
