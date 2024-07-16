@@ -39,6 +39,7 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatButtonModule } from '@angular/material/button';
 import { MatListModule } from '@angular/material/list';
+import { MatCheckboxModule } from '@angular/material/checkbox';
 
 // CDK
 import { CdkTextareaAutosize } from '@angular/cdk/text-field';
@@ -75,6 +76,7 @@ import { KeepAwakeComponent } from './shopping-list/keep-awake/keep-awake.compon
     MatInputModule,
     MatButtonModule,
     MatListModule,
+    MatCheckboxModule,
     CdkTextareaAutosize
   ],
   providers: [
