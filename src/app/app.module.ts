@@ -20,6 +20,7 @@ import { AuthComponent } from './auth/auth.component';
 import { LoadingSpinnerComponent } from './shared/loading-spinner/loading-spinner.component';
 import { AlertComponent } from './shared/alert/alert.component';
 import { ShoppingNotesComponent } from './shopping-list/shopping-notes/shopping-notes.component';
+import { KeepAwakeComponent } from './shopping-list/keep-awake/keep-awake.component';
 
 // Directives
 import { DropdownDirective } from './shared/dropdown.directive';
@@ -43,7 +44,6 @@ import { MatCheckboxModule } from '@angular/material/checkbox';
 
 // CDK
 import { CdkTextareaAutosize } from '@angular/cdk/text-field';
-import { KeepAwakeComponent } from './shopping-list/keep-awake/keep-awake.component';
 
 @NgModule({
   declarations: [
