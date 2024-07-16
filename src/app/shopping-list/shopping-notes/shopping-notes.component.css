@@ -1,0 +1,19 @@
+.shopping-notes {
+    padding: 10px;
+  }
+  
+  .note-input {
+    width: 100%;
+  }
+  
+  .list-group-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .delete-icon {
+    color: rgb(218, 34, 59);
+    cursor: pointer;
+  }
+  
