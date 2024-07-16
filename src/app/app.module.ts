@@ -34,6 +34,7 @@ import { AppRoutingModule } from './app-routing.module';
 
 // Material
 import { MatIconModule } from '@angular/material/icon';
+import { ShoppingNotesComponent } from './shopping-list/shopping-notes/shopping-notes.component';
 
 
 @NgModule({
@@ -52,7 +53,8 @@ import { MatIconModule } from '@angular/material/icon';
     AuthComponent,
     LoadingSpinnerComponent,
     AlertComponent,
-    PlaceholderDirective
+    PlaceholderDirective,
+    ShoppingNotesComponent
   ],
   imports: [
     BrowserModule,
