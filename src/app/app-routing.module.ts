@@ -3,7 +3,7 @@ import { RouterModule, Routes } from "@angular/router";
 
 // Components
 import { RecipesComponent } from "./feature/recipes/recipes.component";
-import { ShoppingListComponent } from "./shopping-list/shopping-list.component";
+import { ShoppingListComponent } from "./feature/shopping-list/shopping-list.component";
 import { RecipeStartComponent } from "./feature/recipes/recipe-start/recipe-start.component";
 import { RecipeDetailComponent } from "./feature/recipes/recipe-detail/recipe-detail.component";
 import { RecipeEditComponent } from "./feature/recipes/recipe-edit/recipe-edit.component";

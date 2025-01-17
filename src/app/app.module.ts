@@ -1,5 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
+import { HTTP_INTERCEPTORS, provideHttpClient, withInterceptorsFromDi } from '@angular/common/http';
 
 // Needed for databinding
 // import { NgModule } from '@angular/core';
@@ -12,15 +12,15 @@ import { RecipesComponent } from './feature/recipes/recipes.component';
 import { RecipeListComponent } from './feature/recipes/recipe-list/recipe-list.component';
 import { RecipeDetailComponent } from './feature/recipes/recipe-detail/recipe-detail.component';
 import { RecipeItemComponent } from './feature/recipes/recipe-list/recipe-item/recipe-item.component';
-import { ShoppingListComponent } from './shopping-list/shopping-list.component';
-import { ShoppingEditComponent } from './shopping-list/shopping-edit/shopping-edit.component';
+import { ShoppingListComponent } from './feature/shopping-list/shopping-list.component';
+import { ShoppingEditComponent } from './feature/shopping-list/shopping-edit/shopping-edit.component';
 import { RecipeStartComponent } from './feature/recipes/recipe-start/recipe-start.component';
 import { RecipeEditComponent } from './feature/recipes/recipe-edit/recipe-edit.component';
 import { AuthComponent } from './core/auth/auth.component';
 import { LoadingSpinnerComponent } from './shared/loading-spinner/loading-spinner.component';
 import { AlertComponent } from './shared/alert/alert.component';
-import { ShoppingNotesComponent } from './shopping-list/shopping-notes/shopping-notes.component';
-import { KeepAwakeComponent } from './shopping-list/keep-awake/keep-awake.component';
+import { ShoppingNotesComponent } from './feature/shopping-list/shopping-notes/shopping-notes.component';
+import { KeepAwakeComponent } from './feature/shopping-list/keep-awake/keep-awake.component';
 
 // Directives
 import { DropdownDirective } from './shared/dropdown.directive';
@@ -28,7 +28,7 @@ import { PlaceholderDirective } from './shared/placeholder/placeholder.directive
 
 // Services
 import { RecipeService } from './feature/recipes/recipe.service';
-import { ShoppingListService } from './shopping-list/shopping-list.service';
+import { ShoppingListService } from './feature/shopping-list/shopping-list.service';
 import { AuthInterceptorService } from './core/auth/auth-interceptor.service';
 
 // Module
@@ -59,7 +59,6 @@ import { NgModule } from '@angular/core';
     FormsModule,
     ReactiveFormsModule,
     AppRoutingModule,
-    HttpClientModule,
     MatIconModule,
     MatFormFieldModule,
     MatInputModule,
@@ -79,15 +78,16 @@ import { NgModule } from '@angular/core';
     ShoppingEditComponent,
     KeepAwakeComponent,
     ShoppingNotesComponent,
-  ],
-  providers: [
-    RecipeService,
-    ShoppingListService,
-    {
-      provide: HTTP_INTERCEPTORS,
-      useClass: AuthInterceptorService,
-      multi: true,
-    },
+    ],
+    providers: [
+      RecipeService,
+      ShoppingListService,
+      {
+        provide: HTTP_INTERCEPTORS,
+        useClass: AuthInterceptorService,
+        multi: true,
+      },
+      provideHttpClient(withInterceptorsFromDi()),
   ],
   bootstrap: [AppComponent],
 })
