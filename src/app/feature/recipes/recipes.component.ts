@@ -1,7 +1,8 @@
-import { RouterModule } from '@angular/router';
+import { ActivatedRoute, NavigationEnd, Router, RouterModule } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { RecipeListComponent } from './recipe-list/recipe-list.component';
+import { filter } from 'rxjs/operators';
 
 @Component({
   selector: 'app-recipes',
@@ -12,7 +13,15 @@ import { RecipeListComponent } from './recipe-list/recipe-list.component';
 })
 export class RecipesComponent implements OnInit {
 
-  constructor() { }
+  isRouterActive: boolean = false;
 
-  ngOnInit() {  }
+  constructor(private router: Router, private route: ActivatedRoute) {}
+
+  ngOnInit(): void {
+    this.router.events
+      .pipe(filter((event) => event instanceof NavigationEnd))
+      .subscribe(() => {
+        this.isRouterActive = this.route.firstChild !== null;
+      });
+  }
 }

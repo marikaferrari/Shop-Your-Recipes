@@ -14,7 +14,6 @@ import { RecipeDetailComponent } from './feature/recipes/recipe-detail/recipe-de
 import { RecipeItemComponent } from './feature/recipes/recipe-list/recipe-item/recipe-item.component';
 import { ShoppingListComponent } from './feature/shopping-list/shopping-list.component';
 import { ShoppingEditComponent } from './feature/shopping-list/shopping-edit/shopping-edit.component';
-import { RecipeStartComponent } from './feature/recipes/recipe-start/recipe-start.component';
 import { RecipeEditComponent } from './feature/recipes/recipe-edit/recipe-edit.component';
 import { AuthComponent } from './core/auth/auth.component';
 import { LoadingSpinnerComponent } from './shared/loading-spinner/loading-spinner.component';
@@ -72,7 +71,6 @@ import { NgModule } from '@angular/core';
     RecipeListComponent,
     RecipeItemComponent,
     RecipeDetailComponent,
-    RecipeStartComponent,
     RecipeEditComponent,
     ShoppingListComponent,
     ShoppingEditComponent,
