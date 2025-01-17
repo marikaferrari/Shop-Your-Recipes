@@ -13,8 +13,6 @@
 
 // @NgModule({
 //     declarations: [
-//         RecipesComponent,
-//         RecipeListComponent,
 //         RecipeDetailComponent,
 //         RecipeItemComponent,
 //         RecipeStartComponent,
@@ -26,8 +24,9 @@
 //             // This is a good replacement for directives
 //         CommonModule,
 //         // For forms
-//         ReactiveFormsModule
-
+//         ReactiveFormsModule,
+//         RecipesComponent,
+//         RecipeListComponent,
 //     ],
 //     exports: [
 //         RecipesComponent,

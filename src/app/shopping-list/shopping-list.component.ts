@@ -2,11 +2,18 @@ import { Component, OnInit, OnDestroy } from '@angular/core';
 import { Ingredient } from '../shared/ingredient.model';
 import { ShoppingListService } from './shopping-list.service';
 import { Subscription } from 'rxjs';
+import { CommonModule } from '@angular/common';
+import { ShoppingEditComponent } from './shopping-edit/shopping-edit.component';
+import { KeepAwakeComponent } from './keep-awake/keep-awake.component';
+import { ShoppingNotesComponent } from './shopping-notes/shopping-notes.component';
+import { MatIconModule } from '@angular/material/icon';
 
 @Component({
   selector: 'app-shopping-list',
   templateUrl: './shopping-list.component.html',
-  styleUrls: ['./shopping-list.component.css']
+  styleUrls: ['./shopping-list.component.css'],
+  standalone: true,
+  imports: [CommonModule, MatIconModule, ShoppingEditComponent, KeepAwakeComponent, ShoppingNotesComponent]
 })
 export class ShoppingListComponent implements OnInit, OnDestroy {
 
