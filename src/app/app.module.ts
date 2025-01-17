@@ -18,7 +18,6 @@ import { RecipeEditComponent } from './feature/recipes/recipe-edit/recipe-edit.c
 import { AuthComponent } from './core/auth/auth.component';
 import { LoadingSpinnerComponent } from './shared/loading-spinner/loading-spinner.component';
 import { AlertComponent } from './shared/alert/alert.component';
-import { ShoppingNotesComponent } from './feature/shopping-list/shopping-notes/shopping-notes.component';
 import { KeepAwakeComponent } from './feature/shopping-list/keep-awake/keep-awake.component';
 
 // Directives
@@ -75,7 +74,6 @@ import { NgModule } from '@angular/core';
     ShoppingListComponent,
     ShoppingEditComponent,
     KeepAwakeComponent,
-    ShoppingNotesComponent,
     ],
     providers: [
       RecipeService,

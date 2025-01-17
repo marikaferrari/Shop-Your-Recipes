@@ -5,7 +5,6 @@ import { Subscription } from 'rxjs';
 import { CommonModule } from '@angular/common';
 import { ShoppingEditComponent } from './shopping-edit/shopping-edit.component';
 import { KeepAwakeComponent } from './keep-awake/keep-awake.component';
-import { ShoppingNotesComponent } from './shopping-notes/shopping-notes.component';
 import { MatIconModule } from '@angular/material/icon';
 
 @Component({
@@ -13,7 +12,7 @@ import { MatIconModule } from '@angular/material/icon';
   templateUrl: './shopping-list.component.html',
   styleUrls: ['./shopping-list.component.css'],
   standalone: true,
-  imports: [CommonModule, MatIconModule, ShoppingEditComponent, KeepAwakeComponent, ShoppingNotesComponent]
+  imports: [CommonModule, MatIconModule, ShoppingEditComponent, KeepAwakeComponent]
 })
 export class ShoppingListComponent implements OnInit, OnDestroy {
 
