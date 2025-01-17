@@ -2,18 +2,18 @@ import { NgModule } from "@angular/core";
 import { RouterModule, Routes } from "@angular/router";
 
 // Components
-import { RecipesComponent } from "./recipes/recipes.component";
+import { RecipesComponent } from "./feature/recipes/recipes.component";
 import { ShoppingListComponent } from "./shopping-list/shopping-list.component";
-import { RecipeStartComponent } from "./recipes/recipe-start/recipe-start.component";
-import { RecipeDetailComponent } from "./recipes/recipe-detail/recipe-detail.component";
-import { RecipeEditComponent } from "./recipes/recipe-edit/recipe-edit.component";
-import { AuthComponent } from "./auth/auth.component";
+import { RecipeStartComponent } from "./feature/recipes/recipe-start/recipe-start.component";
+import { RecipeDetailComponent } from "./feature/recipes/recipe-detail/recipe-detail.component";
+import { RecipeEditComponent } from "./feature/recipes/recipe-edit/recipe-edit.component";
+import { AuthComponent } from "./core/auth/auth.component";
 
 // Services
-import { RecipesResolverService } from "./recipes/recipes-resolver.service";
+import { RecipesResolverService } from "./feature/recipes/recipes-resolver.service";
 
 // Guard
-import { AuthGuard } from "./auth/auth.guard";
+// import { AuthGuard } from "./core/auth/auth.guard";
 
 const appRoutes: Routes = [
     { path: '', redirectTo: '/recipes', pathMatch: 'full' },
@@ -31,11 +31,12 @@ const appRoutes: Routes = [
 
 @NgModule({
     imports: [
-        RouterModule.forRoot(appRoutes)
+        RouterModule.forRoot(appRoutes, {
+            onSameUrlNavigation: 'reload',
+      bindToComponentInputs: true,
+        })
     ],
     exports: [RouterModule]
 })
 
-export class AppRoutingModule {
-
-}
+export class AppRoutingModule {}
