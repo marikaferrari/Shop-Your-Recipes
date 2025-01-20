@@ -5,7 +5,7 @@ import {
   RouterStateSnapshot
 } from '@angular/router';
 import { Recipe } from './recipe.model';
-import { DataStorageService } from '../../shared/data-storage.service';
+import { DataStorageService } from '../../core/recipes/data-storage.service';
 import { RecipeService } from './recipe.service';
 import { toSignal } from '@angular/core/rxjs-interop'; 
 

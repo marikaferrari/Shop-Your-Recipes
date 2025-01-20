@@ -6,7 +6,7 @@ import { ActivatedRoute, Params, Router, RouterModule } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { MatListModule } from '@angular/material/list';
 import { MatButtonModule } from '@angular/material/button';
-import { DropdownDirective } from '../../../shared/dropdown.directive';
+import { DropdownDirective } from '../../../ui/dropdown/dropdown.directive';
 
 @Component({
   selector: 'app-recipe-detail',

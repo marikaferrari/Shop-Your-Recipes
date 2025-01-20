@@ -18,17 +18,17 @@
   </div>
 
   <!-- Recipe List -->
-  <div *ngIf="!isRouterActive()">
+  <div class="row" *ngIf="!isRouterActive()">
     <div class="col-md-10">
       <app-recipe-list />
     </div>
   </div>
 
-  <div *ngIf="isRouterActive()">
+  <div class="row" *ngIf="isRouterActive()">
     <div class="col-md-5">
       <app-recipe-list></app-recipe-list>
     </div>
-    <div class="col-md-7">
+    <div class="col-md-7" style="height: 50%;">
       <router-outlet></router-outlet>
     </div>
   </div>

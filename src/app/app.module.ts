@@ -7,7 +7,6 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 // Components
 import { AppComponent } from './app.component';
-import { HeaderComponent } from './header/header.component';
 import { RecipesComponent } from './feature/recipes/recipes.component';
 import { RecipeListComponent } from './feature/recipes/recipe-list/recipe-list.component';
 import { RecipeDetailComponent } from './feature/recipes/recipe-detail/recipe-detail.component';
@@ -15,14 +14,14 @@ import { RecipeItemComponent } from './feature/recipes/recipe-list/recipe-item/r
 import { ShoppingListComponent } from './feature/shopping-list/shopping-list.component';
 import { ShoppingEditComponent } from './feature/shopping-list/shopping-edit/shopping-edit.component';
 import { RecipeEditComponent } from './feature/recipes/recipe-edit/recipe-edit.component';
-import { AuthComponent } from './core/auth/auth.component';
-import { LoadingSpinnerComponent } from './shared/loading-spinner/loading-spinner.component';
-import { AlertComponent } from './shared/alert/alert.component';
+import { AuthComponent } from './feature/auth/auth.component';
+import { LoadingSpinnerComponent } from './ui/loading-spinner/loading-spinner.component';
+import { AlertComponent } from './ui/alert/alert.component';
 import { KeepAwakeComponent } from './feature/shopping-list/keep-awake/keep-awake.component';
 
 // Directives
-import { DropdownDirective } from './shared/dropdown.directive';
-import { PlaceholderDirective } from './shared/placeholder/placeholder.directive';
+import { DropdownDirective } from './ui/dropdown/dropdown.directive';
+import { PlaceholderDirective } from './ui/placeholder/placeholder.directive';
 
 // Services
 import { RecipeService } from './feature/recipes/recipe.service';
@@ -43,11 +42,11 @@ import { MatCheckboxModule } from '@angular/material/checkbox';
 // CDK
 import { CdkTextareaAutosize } from '@angular/cdk/text-field';
 import { NgModule } from '@angular/core';
+import { HeaderComponent } from './layout/header/header.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    HeaderComponent,
     AuthComponent,
     LoadingSpinnerComponent,
     AlertComponent,
@@ -66,6 +65,7 @@ import { NgModule } from '@angular/core';
     CdkTextareaAutosize,
     DropdownDirective,
     PlaceholderDirective,
+    HeaderComponent,
     RecipesComponent,
     RecipeListComponent,
     RecipeItemComponent,

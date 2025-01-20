@@ -6,7 +6,7 @@ import { RecipesComponent } from "./feature/recipes/recipes.component";
 import { ShoppingListComponent } from "./feature/shopping-list/shopping-list.component";
 import { RecipeDetailComponent } from "./feature/recipes/recipe-detail/recipe-detail.component";
 import { RecipeEditComponent } from "./feature/recipes/recipe-edit/recipe-edit.component";
-import { AuthComponent } from "./core/auth/auth.component";
+import { AuthComponent } from "./feature/auth/auth.component";
 
 // Services
 import { RecipesResolverService } from "./feature/recipes/recipes-resolver.service";
