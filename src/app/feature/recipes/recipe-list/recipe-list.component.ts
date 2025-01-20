@@ -27,7 +27,6 @@ export class RecipeListComponent {
       : this.recipes();
   });
 
-  // Computed signal to check if there are recipes
   readonly hasRecipes = computed(() => this.filteredRecipes().length > 0);
 
   constructor(
@@ -36,12 +35,10 @@ export class RecipeListComponent {
     private route: ActivatedRoute
   ) {}
 
-  // Updates the search term, triggering filteredRecipes computation
   filterRecipes(searchTerm: string) {
     this.searchTerm.set(searchTerm);
   }
 
-  // Navigate to the "New Recipe" page
   onNewRecipe() {
     this.router.navigate(['new'], { relativeTo: this.route });
   }
