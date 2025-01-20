@@ -123,15 +123,12 @@ export class RecipeService {
         ),
       ]
     ),
-    // Additional recipes omitted for brevity...
   ]);
 
-  // Computed signal for accessing recipes
   readonly recipesSignal = computed(() => this.recipes());
 
   constructor(private slService: ShoppingListService) {}
 
-  // Replace recipes and update signal
   setRecipes(recipes: Recipe[]) {
     this.recipes.set(recipes);
   }

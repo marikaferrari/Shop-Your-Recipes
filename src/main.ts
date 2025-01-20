@@ -1,7 +1,22 @@
-import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';
+import { bootstrapApplication } from '@angular/platform-browser';
+import { AppComponent } from './app/app.component';
+import { provideRouter } from '@angular/router';
+import { appRoutes } from './app/app-routing.module';
+import { provideHttpClient, withInterceptors } from '@angular/common/http';
+import { AuthInterceptorService } from './app/core/auth/auth-interceptor.service';
+import { DataStorageService } from './app/core/recipes/data-storage.service';
+import { RecipeService } from './app/feature/recipes/recipe.service';
+import { ShoppingListService } from './app/feature/shopping-list/shopping-list.service';
+import { BrowserAnimationsModule, provideAnimations } from '@angular/platform-browser/animations';
 
-import { AppModule } from './app/app.module';
-
-
-platformBrowserDynamic().bootstrapModule(AppModule)
-  .catch(err => console.error(err));
+bootstrapApplication(AppComponent, {
+  providers: [
+    provideRouter(appRoutes),
+    provideAnimations(),
+    provideHttpClient(),
+    // provideHttpClient(withInterceptors([AuthInterceptorService])),
+    DataStorageService,
+    RecipeService,
+    ShoppingListService
+  ],
+}).catch((err) => console.error(err));

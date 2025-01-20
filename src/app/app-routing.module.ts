@@ -14,7 +14,7 @@ import { RecipesResolverService } from "./feature/recipes/recipes-resolver.servi
 // Guard
 // import { AuthGuard } from "./core/auth/auth.guard";
 
-const appRoutes: Routes = [
+export const appRoutes: Routes = [
     { path: '', redirectTo: '/recipes', pathMatch: 'full' },
     { path: 'recipes', component: RecipesComponent, 
         // canActivate: [AuthGuard], 

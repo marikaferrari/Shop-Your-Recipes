@@ -1,6 +1,10 @@
+import { Injectable } from '@angular/core';
 import { Ingredient } from '../../core/models/ingredient.model';
 import { Subject } from 'rxjs/Subject';
 
+@Injectable({
+  providedIn: 'root', // This ensures it is globally available
+})
 export class ShoppingListService {
   ingredientsChanged = new Subject<Ingredient[]>();
   startedEditing = new Subject<number>();
