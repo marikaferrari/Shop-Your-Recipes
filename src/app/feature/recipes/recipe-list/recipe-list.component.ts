@@ -15,34 +15,33 @@ import { signal, computed } from '@angular/core';
   imports: [CommonModule, MatButtonModule, RecipeItemComponent],
 })
 export class RecipeListComponent {
-  private recipes = signal<Recipe[]>(this.recipeService.getRecipes());
-  private filteredRecipes = signal<Recipe[]>([...this.recipes()]);
+  // Signals for recipes and filtered recipes
+  private recipes = this.recipeService.recipesSignal;
+  private searchTerm = signal<string>('');
+  readonly filteredRecipes = computed(() => {
+    const term = this.searchTerm().toLowerCase();
+    return term
+      ? this.recipes().filter((recipe) =>
+          recipe.name.toLowerCase().includes(term)
+        )
+      : this.recipes();
+  });
 
+  // Computed signal to check if there are recipes
   readonly hasRecipes = computed(() => this.filteredRecipes().length > 0);
 
   constructor(
     private recipeService: RecipeService,
     private router: Router,
     private route: ActivatedRoute
-  ) {
-    this.recipeService.recipesChanged.subscribe((recipes: Recipe[]) => {
-      this.recipes.set(recipes);
-      this.filteredRecipes.set([...recipes]);
-    });
-  }
+  ) {}
 
+  // Updates the search term, triggering filteredRecipes computation
   filterRecipes(searchTerm: string) {
-    if (!searchTerm) {
-      this.filteredRecipes.set([...this.recipes()]);
-    } else {
-      this.filteredRecipes.set(
-        this.recipes().filter((recipe) =>
-          recipe.name.toLowerCase().includes(searchTerm.toLowerCase())
-        )
-      );
-    }
+    this.searchTerm.set(searchTerm);
   }
 
+  // Navigate to the "New Recipe" page
   onNewRecipe() {
     this.router.navigate(['new'], { relativeTo: this.route });
   }

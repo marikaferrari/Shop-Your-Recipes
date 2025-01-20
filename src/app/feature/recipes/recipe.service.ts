@@ -1,15 +1,13 @@
-import { Injectable } from '@angular/core';
-import { Subject } from 'rxjs/Subject';
-
+import { Injectable, signal, computed } from '@angular/core';
 import { Recipe } from './recipe.model';
 import { Ingredient } from '../../shared/ingredient.model';
 import { ShoppingListService } from '../shopping-list/shopping-list.service';
 
-@Injectable()
+@Injectable({
+  providedIn: 'root',
+})
 export class RecipeService {
-  recipesChanged = new Subject<Recipe[]>();
-
-  private recipes: Recipe[] = [
+  private recipes = signal<Recipe[]>([
     new Recipe(
       'Gazpacho',
       'Delicious Andalusian gazpacho (with a "z").',
@@ -125,23 +123,21 @@ export class RecipeService {
         ),
       ]
     ),
-  ];
+    // Additional recipes omitted for brevity...
+  ]);
 
-  // private recipes: Recipe[] = [];
+  // Computed signal for accessing recipes
+  readonly recipesSignal = computed(() => this.recipes());
 
   constructor(private slService: ShoppingListService) {}
 
+  // Replace recipes and update signal
   setRecipes(recipes: Recipe[]) {
-    this.recipes = recipes;
-    this.recipesChanged.next(this.recipes.slice());
+    this.recipes.set(recipes);
   }
 
-  getRecipes() {
-    return this.recipes.slice();
-  }
-
-  getRecipe(index: number) {
-    return this.recipes[index];
+  getRecipes(index: number): Recipe {
+    return this.recipes()[index];
   }
 
   addIngredientsToShoppingList(ingredients: Ingredient[]) {
@@ -149,17 +145,18 @@ export class RecipeService {
   }
 
   addRecipe(recipe: Recipe) {
-    this.recipes.push(recipe);
-    this.recipesChanged.next(this.recipes.slice());
+    this.recipes.update((currentRecipes) => [...currentRecipes, recipe]);
   }
 
   updateRecipe(index: number, newRecipe: Recipe) {
-    this.recipes[index] = newRecipe;
-    this.recipesChanged.next(this.recipes.slice());
+    this.recipes.update((currentRecipes) =>
+      currentRecipes.map((recipe, i) => (i === index ? newRecipe : recipe))
+    );
   }
 
   deleteRecipe(index: number) {
-    this.recipes.splice(index, 1);
-    this.recipesChanged.next(this.recipes.slice());
+    this.recipes.update((currentRecipes) =>
+      currentRecipes.filter((_, i) => i !== index)
+    );
   }
 }

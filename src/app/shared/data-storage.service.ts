@@ -1,16 +1,15 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpParams } from '@angular/common/http';
-import { map, tap, take, exhaustMap } from 'rxjs/operators';
-
+import { take, exhaustMap, map, tap } from 'rxjs/operators';
 import { Recipe } from '../feature/recipes/recipe.model';
 import { RecipeService } from '../feature/recipes/recipe.service';
 import { AuthService } from '../core/auth/auth.service';
+import { signal } from '@angular/core';
 
 @Injectable({ providedIn: 'root' })
 export class DataStorageService {
-
   private url =
-  'https://shop-your-recipes-default-rtdb.europe-west1.firebasedatabase.app/recipes.json';
+    'https://shop-your-recipes-default-rtdb.europe-west1.firebasedatabase.app/recipes.json';
 
   constructor(
     private http: HttpClient,
@@ -19,38 +18,35 @@ export class DataStorageService {
   ) {}
 
   storeRecipes() {
-    const recipes = this.recipeService.getRecipes();
-    this.http
-      .put(
-        this.url,
-        recipes
-      )
-      .subscribe(response => {
-        console.log('Currently storing recipes:', response);
-      });
+    const recipes = this.recipeService.recipesSignal(); // Fetch recipes using the signal
+    this.http.put(this.url, recipes).subscribe({
+      next: (response) => {
+        console.log('Recipes successfully stored:', response);
+      },
+      error: (error) => {
+        console.error('Failed to store recipes:', error);
+      },
+    });
   }
 
   fetchRecipes() {
     return this.authService.user.pipe(
       take(1),
-      exhaustMap(user => {
-        return this.http.get<Recipe[]>(
-          this.url,
-          {
-            params: new HttpParams().set('auth', user.token)
-          }
-        );
+      exhaustMap((user) => {
+        return this.http.get<Recipe[]>(this.url, {
+          params: new HttpParams().set('auth', user.token),
+        });
       }),
-      map(recipes => {
-        return recipes.map(recipe => {
+      map((recipes) => {
+        return recipes.map((recipe) => {
           return {
             ...recipe,
-            ingredients: recipe.ingredients ? recipe.ingredients : []
+            ingredients: recipe.ingredients ? recipe.ingredients : [],
           };
         });
       }),
-      tap(recipes => {
-        this.recipeService.setRecipes(recipes);
+      tap((recipes) => {
+        this.recipeService.setRecipes(recipes); // Update recipes using the signal
       })
     );
   }
