@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, signal, computed } from '@angular/core';
 import { ActivatedRoute, NavigationEnd, Router, RouterModule } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { RecipeListComponent } from './recipe-list/recipe-list.component';
@@ -14,18 +14,18 @@ import { viewChild } from '@angular/core';
   standalone: true,
   imports: [CommonModule, RouterModule, RecipeListComponent, MatFormFieldModule, MatInputModule],
 })
-export class RecipesComponent implements OnInit {
+export class RecipesComponent {
   private recipeListComponent = viewChild<RecipeListComponent>(RecipeListComponent);
 
-  isRouterActive: boolean = false;
+  private currentRoute = signal<ActivatedRoute | null>(null);
 
-  constructor(private router: Router, private route: ActivatedRoute) {}
+  readonly isRouterActive = computed(() => this.currentRoute() !== null);
 
-  ngOnInit(): void {
+  constructor(private router: Router, private route: ActivatedRoute) {
     this.router.events
       .pipe(filter((event) => event instanceof NavigationEnd))
       .subscribe(() => {
-        this.isRouterActive = this.route.firstChild !== null;
+        this.currentRoute.set(this.route.firstChild);
       });
   }
 

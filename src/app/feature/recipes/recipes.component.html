@@ -1,22 +1,24 @@
 <div class="container">
   <!-- Search Box -->
   <div class="search-box">
-      <mat-form-field class="full-width" appearance="outline">
-        <mat-label>Search Recipes</mat-label>
-        <input
-          matInput
-          (input)="onSearch($event.target.value)"
-          placeholder="Type to search"
-        />
-      </mat-form-field>
+    <mat-form-field class="full-width" appearance="outline">
+      <mat-label>Search Recipes</mat-label>
+      <input
+        matInput
+        (input)="onSearch($event.target.value)"
+        placeholder="Type to search"
+      />
+    </mat-form-field>
   </div>
 
   <!-- Recipe List -->
-  <div class="row" *ngIf="!isRouterActive">
-    <app-recipe-list></app-recipe-list>
+  <div class="row" *ngIf="!isRouterActive()">
+    <div class="col-md-10">
+      <app-recipe-list />
+    </div>
   </div>
 
-  <div class="row" *ngIf="isRouterActive">
+  <div class="row" *ngIf="isRouterActive()">
     <div class="col-md-5">
       <app-recipe-list></app-recipe-list>
     </div>

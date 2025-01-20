@@ -1,9 +1,8 @@
 <div class="row">
   <div class="col-xs-12">
-    <!-- Recipe Items -->
-    <ng-container *ngIf="hasRecipes; else noRecipesFound">
+    <ng-container *ngIf="hasRecipes(); else noRecipesFound">
       <app-recipe-item
-        *ngFor="let recipeEl of filteredRecipes; let i = index"
+        *ngFor="let recipeEl of filteredRecipes(); let i = index"
         [recipe]="recipeEl"
         [index]="i">
       </app-recipe-item>
@@ -11,7 +10,6 @@
   </div>
 </div>
 
-<!-- "No Recipes Found" Template -->
 <ng-template #noRecipesFound>
   <div class="no-recipes">
     <p>No recipes found. Please try a different search term.</p>
