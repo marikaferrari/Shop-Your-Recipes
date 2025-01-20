@@ -1,8 +1,8 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { HTTP_INTERCEPTORS, provideHttpClient, withInterceptorsFromDi } from '@angular/common/http';
+import { NgModule } from '@angular/core';
 
 // Needed for databinding
-// import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 // Components
@@ -18,6 +18,8 @@ import { AuthComponent } from './feature/auth/auth.component';
 import { LoadingSpinnerComponent } from './ui/loading-spinner/loading-spinner.component';
 import { AlertComponent } from './ui/alert/alert.component';
 import { KeepAwakeComponent } from './feature/shopping-list/keep-awake/keep-awake.component';
+import { HeaderComponent } from './layout/header/header.component';
+import { WarningBannerComponent } from './ui/warning-banner/warning-banner.component';
 
 // Directives
 import { DropdownDirective } from './ui/dropdown/dropdown.directive';
@@ -41,8 +43,7 @@ import { MatCheckboxModule } from '@angular/material/checkbox';
 
 // CDK
 import { CdkTextareaAutosize } from '@angular/cdk/text-field';
-import { NgModule } from '@angular/core';
-import { HeaderComponent } from './layout/header/header.component';
+
 
 @NgModule({
   declarations: [
@@ -74,6 +75,7 @@ import { HeaderComponent } from './layout/header/header.component';
     ShoppingListComponent,
     ShoppingEditComponent,
     KeepAwakeComponent,
+    WarningBannerComponent
     ],
     providers: [
       RecipeService,

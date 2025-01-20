@@ -6,13 +6,14 @@ import { filter } from 'rxjs/operators';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { viewChild } from '@angular/core';
+import { WarningBannerComponent } from '../../ui/warning-banner/warning-banner.component';
 
 @Component({
   selector: 'app-recipes',
   templateUrl: './recipes.component.html',
   styleUrls: ['./recipes.component.css'],
   standalone: true,
-  imports: [CommonModule, RouterModule, RecipeListComponent, MatFormFieldModule, MatInputModule],
+  imports: [CommonModule, RouterModule, RecipeListComponent, WarningBannerComponent, MatFormFieldModule, MatInputModule],
 })
 export class RecipesComponent {
   private recipeListComponent = viewChild<RecipeListComponent>(RecipeListComponent);
