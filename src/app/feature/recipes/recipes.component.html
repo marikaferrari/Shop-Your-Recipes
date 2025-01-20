@@ -1,14 +1,21 @@
 <div class="container">
-  <!-- Centered Recipe List when Router is Inactive -->
-  <div
-    class="row justify-content-center align-items-center"
-    *ngIf="!isRouterActive"
-    style="height: 100vh;"
-  >
-      <app-recipe-list></app-recipe-list>
+  <!-- Search Box -->
+  <div class="search-box">
+      <mat-form-field class="full-width" appearance="outline">
+        <mat-label>Search Recipes</mat-label>
+        <input
+          matInput
+          (input)="onSearch($event.target.value)"
+          placeholder="Type to search"
+        />
+      </mat-form-field>
   </div>
 
-  <!-- Original Layout when Router is Active -->
+  <!-- Recipe List -->
+  <div class="row" *ngIf="!isRouterActive">
+    <app-recipe-list></app-recipe-list>
+  </div>
+
   <div class="row" *ngIf="isRouterActive">
     <div class="col-md-5">
       <app-recipe-list></app-recipe-list>
