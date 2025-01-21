@@ -7,7 +7,7 @@ import { AuthInterceptorService } from './app/core/auth/auth-interceptor.service
 import { DataStorageService } from './app/core/recipes/data-storage.service';
 import { RecipeService } from './app/feature/recipes/recipe.service';
 import { ShoppingListService } from './app/feature/shopping-list/shopping-list.service';
-import { BrowserAnimationsModule, provideAnimations } from '@angular/platform-browser/animations';
+import { provideAnimations } from '@angular/platform-browser/animations';
 
 bootstrapApplication(AppComponent, {
   providers: [

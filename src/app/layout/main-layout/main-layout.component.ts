@@ -9,6 +9,7 @@ import { DropdownDirective } from '../../ui/dropdown/dropdown.directive';
 @Component({
   selector: 'my-org-main-layout',
   templateUrl: './main-layout.component.html',
+  styleUrls: ['./main-layout.component.css'],
   standalone: true,
   imports: [CommonModule, RouterModule, DropdownDirective],
 })

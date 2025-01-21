@@ -1,0 +1,46 @@
+.info-box-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0.8rem 0 2rem 0;
+}
+
+.info-box {
+  padding: 1rem;
+  display: flex;
+  justify-content: center;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.info-box-content {
+  display: flex;
+  flex-direction: row;
+  gap: 0.8rem;
+}
+
+.info-icon {
+  padding: 0.2rem;
+  font-size: 0.625rem;
+}
+
+.work-patterns {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.info-text {
+  margin: 0;
+}
+
+.link {
+  color: black;
+  font-weight: 300;
+  text-decoration: none;
+}
+
+&:hover {
+  text-decoration: underline;
+}
