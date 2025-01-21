@@ -4,14 +4,15 @@ import { DataStorageService } from '../../core/recipes/data-storage.service';
 import { AuthService } from '../../core/auth/auth.service';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
+import { DropdownDirective } from '../../ui/dropdown/dropdown.directive';
 
 @Component({
-  selector: 'app-header',
-  templateUrl: './header.component.html',
+  selector: 'my-org-main-layout',
+  templateUrl: './main-layout.component.html',
   standalone: true,
-  imports: [CommonModule, RouterModule],
+  imports: [CommonModule, RouterModule, DropdownDirective],
 })
-export class HeaderComponent implements OnInit, OnDestroy {
+export class MainLayoutComponent implements OnInit, OnDestroy {
   collapsed = true;
 
   // isAuthenticated = false;
