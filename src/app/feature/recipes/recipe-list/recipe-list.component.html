@@ -1,5 +1,5 @@
-<div class="row">
-  <div class="col-xs-12">
+<div class="row" style="width: 100%; display: flex; align-items: center; flex-direction: column;">
+  <div class="col-xs-8">
     <ng-container *ngIf="hasRecipes(); else noRecipesFound">
       <app-recipe-item
         *ngFor="let recipeEl of filteredRecipes(); let i = index"
@@ -7,17 +7,12 @@
         [index]="i">
       </app-recipe-item>
     </ng-container>
-  </div>
-</div>
 
 <ng-template #noRecipesFound>
   <div class="no-recipes">
     <p>No recipes found. Please try a different search term.</p>
   </div>
 </ng-template>
-
-<div class="row">
-  <div class="col-xs-8">
     <button
       mat-raised-button
       class="btn btn-primary"

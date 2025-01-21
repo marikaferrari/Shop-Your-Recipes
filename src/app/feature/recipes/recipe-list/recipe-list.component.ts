@@ -15,7 +15,6 @@ import { signal, computed } from '@angular/core';
   imports: [CommonModule, MatButtonModule, RecipeItemComponent],
 })
 export class RecipeListComponent {
-  // Signals for recipes and filtered recipes
   private recipes = this.recipeService.recipesSignal;
   private searchTerm = signal<string>('');
   readonly filteredRecipes = computed(() => {
