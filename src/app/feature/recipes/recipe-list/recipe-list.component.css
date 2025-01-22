@@ -1,13 +1,22 @@
+.container {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
 .col-xs-8 {
-    height: 100vh;
-    display: flex;
-    flex-direction: column;
-    /* justify-content: space-between; */
-    gap: 10px;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.full-width {
+  width: 60%;
 }
 
 button {
-    background-color: rgb(34, 154, 218);
-    font-size: 15px;
-    border-color: rgb(34, 154, 218);
+  background-color: rgb(34, 154, 218);
+  font-size: 15px;
+  border-color: rgb(34, 154, 218);
 }

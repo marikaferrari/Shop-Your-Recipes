@@ -1,23 +1,37 @@
-<div class="row" style="width: 100%; display: flex; align-items: center; flex-direction: column;">
+<div class="container">
   <div class="col-xs-8">
+    <!-- Search Box -->
+        <div class="search-box">
+          <mat-form-field class="full-width" appearance="outline">
+            <mat-label>Search Recipes</mat-label>
+            <input
+              matInput
+              (input)="onSearch($event.target.value)"
+              placeholder="Type to search"
+            />
+          </mat-form-field>
+        </div>
 
     @for (recipeEl of filteredRecipes(); track recipeEl; let i = $index) {
-      <app-recipe-item
-        [recipe]="recipeEl"
-        [index]="i">
-      </app-recipe-item>
+    <app-recipe-item [recipe]="recipeEl" [index]="i"> </app-recipe-item>
     } @empty {
-      <div class="no-recipes">
-        <p>No recipes found. Please try a different search term.</p>
-      </div>
+    <div class="no-recipes">
+      <p>No recipes found. Please try a different search term.</p>
+    </div>
     }
     <button
       mat-raised-button
       class="btn btn-primary"
       type="button"
-      style="background-color: rgb(34, 154, 218); border-color: rgb(34, 154, 218); color: white; font-weight: 400; margin-top: 20px;"
+      style="
+        background-color: rgb(34, 154, 218);
+        border-color: rgb(34, 154, 218);
+        color: white;
+        font-weight: 400;
+        margin-top: 20px;
+      "
       (click)="onNewRecipe()"
-      >
+    >
       New Recipe
     </button>
   </div>

@@ -1,37 +1,19 @@
 <div class="recipes-container">
   <app-warning-banner></app-warning-banner>
 
-  <!-- Search Box -->
-  <div class="row" style="height: auto; width: 100%; display: flex; justify-content: center">
-    <div class="col-xs-8">
-      <div class="search-box">
-        <mat-form-field class="full-width" appearance="outline">
-          <mat-label>Search Recipes</mat-label>
-          <input
-            matInput
-            (input)="onSearch($event.target.value)"
-            placeholder="Type to search"
-            />
-          </mat-form-field>
-        </div>
-      </div>
-    </div>
-
-    <!-- Recipe List -->
-    @if (!isRouterActive()) {
-      <div class="main-content">
-        <app-recipe-list></app-recipe-list>
-      </div>
-    }
-
-    @if (isRouterActive()) {
-      <div class="split-content">
-        <div class="left-pane">
-          <app-recipe-list></app-recipe-list>
-        </div>
-        <div class="right-pane">
-          <router-outlet></router-outlet>
-        </div>
-      </div>
-    }
+  <!-- Recipe List -->
+  @if (!isRouterActive()) {
+  <div class="main-content">
+    <app-recipe-list></app-recipe-list>
   </div>
+  } @if (isRouterActive()) {
+  <div class="split-content">
+    <div class="left-pane">
+      <app-recipe-list></app-recipe-list>
+    </div>
+    <div class="right-pane">
+      <router-outlet></router-outlet>
+    </div>
+  </div>
+  }
+</div>

@@ -1,4 +1,7 @@
-import { Component } from '@angular/core';
+import { CommonModule } from '@angular/common';
+import { MatInputModule } from '@angular/material/input';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { Component, input, viewChild } from '@angular/core';
 import { Recipe } from '../recipe.model';
 import { RecipeService } from '../recipe.service';
 import { ActivatedRoute, Router } from '@angular/router';
@@ -12,9 +15,12 @@ import { signal, computed } from '@angular/core';
   templateUrl: './recipe-list.component.html',
   styleUrls: ['./recipe-list.component.css'],
   standalone: true,
-  imports: [MatButtonModule, RecipeItemComponent],
+  imports: [CommonModule, MatButtonModule, RecipeItemComponent, MatFormFieldModule, MatInputModule],
 })
 export class RecipeListComponent {
+  private recipeListComponent = viewChild<RecipeListComponent>(RecipeListComponent);
+  isRouterActive = input(false);
+
   private recipes = this.recipeService.recipesSignal;
   private searchTerm = signal<string>('');
   readonly filteredRecipes = computed(() => {
@@ -30,7 +36,9 @@ export class RecipeListComponent {
     private recipeService: RecipeService,
     private router: Router,
     private route: ActivatedRoute
-  ) {}
+  ) {
+     console.log(this.isRouterActive());
+  }
 
   filterRecipes(searchTerm: string) {
     this.searchTerm.set(searchTerm);
@@ -38,5 +46,12 @@ export class RecipeListComponent {
 
   onNewRecipe() {
     this.router.navigate(['new'], { relativeTo: this.route });
+  }
+
+  onSearch(searchTerm: string) {
+    const recipeList = this.recipeListComponent();
+    if (recipeList) {
+      recipeList.filterRecipes(searchTerm);
+    }
   }
 }
