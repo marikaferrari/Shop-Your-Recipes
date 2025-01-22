@@ -1,6 +1,6 @@
 import { Component, OnInit, signal, computed } from '@angular/core';
 import { ActivatedRoute, NavigationEnd, Router, RouterModule } from '@angular/router';
-import { CommonModule } from '@angular/common';
+
 import { RecipeListComponent } from './recipe-list/recipe-list.component';
 import { filter } from 'rxjs/operators';
 import { MatFormFieldModule } from '@angular/material/form-field';
@@ -13,7 +13,7 @@ import { WarningBannerComponent } from '../../ui/warning-banner/warning-banner.c
   templateUrl: './recipes.component.html',
   styleUrls: ['./recipes.component.css'],
   standalone: true,
-  imports: [CommonModule, RouterModule, RecipeListComponent, WarningBannerComponent, MatFormFieldModule, MatInputModule],
+  imports: [RouterModule, RecipeListComponent, WarningBannerComponent, MatFormFieldModule, MatInputModule],
 })
 export class RecipesComponent {
   private recipeListComponent = viewChild<RecipeListComponent>(RecipeListComponent);

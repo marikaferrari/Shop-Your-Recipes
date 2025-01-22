@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { Recipe } from '../recipe.model';
 import { RecipeService } from '../recipe.service';
 import { ActivatedRoute, Router } from '@angular/router';
-import { CommonModule } from '@angular/common';
+
 import { RecipeItemComponent } from './recipe-item/recipe-item.component';
 import { MatButtonModule } from '@angular/material/button';
 import { signal, computed } from '@angular/core';
@@ -12,7 +12,7 @@ import { signal, computed } from '@angular/core';
   templateUrl: './recipe-list.component.html',
   styleUrls: ['./recipe-list.component.css'],
   standalone: true,
-  imports: [CommonModule, MatButtonModule, RecipeItemComponent],
+  imports: [MatButtonModule, RecipeItemComponent],
 })
 export class RecipeListComponent {
   private recipes = this.recipeService.recipesSignal;
@@ -25,8 +25,6 @@ export class RecipeListComponent {
         )
       : this.recipes();
   });
-
-  readonly hasRecipes = computed(() => this.filteredRecipes().length > 0);
 
   constructor(
     private recipeService: RecipeService,

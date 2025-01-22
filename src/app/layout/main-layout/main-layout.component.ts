@@ -2,7 +2,7 @@ import { Component, OnInit, OnDestroy } from '@angular/core';
 import { Subscription } from 'rxjs';
 import { DataStorageService } from '../../core/recipes/data-storage.service';
 import { AuthService } from '../../core/auth/auth.service';
-import { CommonModule } from '@angular/common';
+
 import { RouterModule } from '@angular/router';
 import { DropdownDirective } from '../../ui/dropdown/dropdown.directive';
 
@@ -11,7 +11,7 @@ import { DropdownDirective } from '../../ui/dropdown/dropdown.directive';
   templateUrl: './main-layout.component.html',
   styleUrls: ['./main-layout.component.css'],
   standalone: true,
-  imports: [CommonModule, RouterModule, DropdownDirective],
+  imports: [RouterModule, DropdownDirective],
 })
 export class MainLayoutComponent implements OnInit, OnDestroy {
   collapsed = true;

@@ -11,23 +11,27 @@
             matInput
             (input)="onSearch($event.target.value)"
             placeholder="Type to search"
-          />
-        </mat-form-field>
+            />
+          </mat-form-field>
+        </div>
       </div>
     </div>
-  </div>
 
-  <!-- Recipe List -->
-  <div class="main-content" *ngIf="!isRouterActive()">
-    <app-recipe-list></app-recipe-list>
-  </div>
+    <!-- Recipe List -->
+    @if (!isRouterActive()) {
+      <div class="main-content">
+        <app-recipe-list></app-recipe-list>
+      </div>
+    }
 
-  <div class="split-content" *ngIf="isRouterActive()">
-    <div class="left-pane">
-      <app-recipe-list></app-recipe-list>
-    </div>
-    <div class="right-pane">
-      <router-outlet></router-outlet>
-    </div>
+    @if (isRouterActive()) {
+      <div class="split-content">
+        <div class="left-pane">
+          <app-recipe-list></app-recipe-list>
+        </div>
+        <div class="right-pane">
+          <router-outlet></router-outlet>
+        </div>
+      </div>
+    }
   </div>
-</div>

@@ -3,7 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { Recipe } from '../recipe.model';
 import { RecipeService } from '../recipe.service';
 import { ActivatedRoute, Params, Router, RouterModule } from '@angular/router';
-import { CommonModule } from '@angular/common';
+
 import { MatListModule } from '@angular/material/list';
 import { MatButtonModule } from '@angular/material/button';
 import { DropdownDirective } from '../../../ui/dropdown/dropdown.directive';
@@ -13,7 +13,7 @@ import { DropdownDirective } from '../../../ui/dropdown/dropdown.directive';
   templateUrl: './recipe-detail.component.html',
   styleUrls: ['./recipe-detail.component.css'],
   standalone: true,
-  imports: [CommonModule, MatListModule, MatButtonModule, DropdownDirective]
+  imports: [MatListModule, MatButtonModule, DropdownDirective]
 })
 export class RecipeDetailComponent implements OnInit {
   recipe: Recipe;

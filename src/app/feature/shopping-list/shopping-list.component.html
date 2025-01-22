@@ -9,60 +9,63 @@
       flex-direction: column;
       margin: auto;
     "
-  >
+    >
     <div
       class="shopping-container"
       style="padding: 20px; background: #ffffff; border-radius: 10px; box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);"
-    >
+      >
       <div class="row">
         <div class="col-xs-12">
           <app-shopping-edit></app-shopping-edit>
           <hr />
           <app-keep-awake></app-keep-awake>
           <hr />
-          <div *ngFor="let category of categorizedIngredients | keyvalue">
-            <p style="font-size: 16px; font-weight: 600; padding-bottom: 10px;">
-              {{ category.key }}
-            </p>
-            <ul class="list-group">
-              <li
-                class="list-group-item"
-                *ngFor="let ingredient of category.value; let i = index"
-                (click)="onEditItem(category.key, i)"
-              >
-                <div class="ingredient-info">
-                  <div class="image-container">
-                    <img
-                      [src]="ingredient.ingredientsImg"
-                      alt="{{ ingredient.name }}"
-                      class="ingredients-img"
-                    />
-                  </div>
-                  <p style="margin: 0; font-size: 14px;">
-                    <strong>{{ ingredient.name }}</strong>
-                    | {{ ingredient.amount }}
-                    {{ ingredient.amount > 1 ? "pieces" : "piece" }}
-                  </p>
-                </div>
-                <div class="icons">
-                  <mat-icon
+          @for (category of categorizedIngredients | keyvalue; track category) {
+            <div>
+              <p style="font-size: 16px; font-weight: 600; padding-bottom: 10px;">
+                {{ category.key }}
+              </p>
+              <ul class="list-group">
+                @for (ingredient of category.value; track ingredient; let i = $index) {
+                  <li
+                    class="list-group-item"
                     (click)="onEditItem(category.key, i)"
-                    class="icon-edit"
-                  >
-                    draw
-                  </mat-icon>
-                  <mat-icon
-                    (click)="onDeleteItem(category.key, i)"
-                    class="icon-delete"
-                  >
-                    delete_forever
-                  </mat-icon>
-                </div>
-              </li>
-            </ul>
+                    >
+                    <div class="ingredient-info">
+                      <div class="image-container">
+                        <img
+                          [src]="ingredient.ingredientsImg"
+                          alt="{{ ingredient.name }}"
+                          class="ingredients-img"
+                          />
+                        </div>
+                        <p style="margin: 0; font-size: 14px;">
+                          <strong>{{ ingredient.name }}</strong>
+                          | {{ ingredient.amount }}
+                          {{ ingredient.amount > 1 ? "pieces" : "piece" }}
+                        </p>
+                      </div>
+                      <div class="icons">
+                        <mat-icon
+                          (click)="onEditItem(category.key, i)"
+                          class="icon-edit"
+                          >
+                          draw
+                        </mat-icon>
+                        <mat-icon
+                          (click)="onDeleteItem(category.key, i)"
+                          class="icon-delete"
+                          >
+                          delete_forever
+                        </mat-icon>
+                      </div>
+                    </li>
+                  }
+                </ul>
+              </div>
+            }
           </div>
         </div>
       </div>
     </div>
   </div>
-</div>
