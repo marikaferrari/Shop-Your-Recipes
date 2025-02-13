@@ -49,9 +49,7 @@ export class RecipeListComponent {
   }
 
   onSearch(searchTerm: string) {
-    const recipeList = this.recipeListComponent();
-    if (recipeList) {
-      recipeList.filterRecipes(searchTerm);
-    }
+    this.filterRecipes(searchTerm);
   }
+  
 }

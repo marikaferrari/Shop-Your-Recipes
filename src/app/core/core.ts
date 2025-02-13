@@ -41,7 +41,7 @@ import {
         provide: ENVIRONMENT_INITIALIZER,
         multi: true,
         useValue() {
-          console.log('Environment initialized...');
+          // console.log('Environment initialized...');
         },
       },
     ]);
